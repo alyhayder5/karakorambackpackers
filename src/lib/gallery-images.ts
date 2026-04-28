@@ -1,0 +1,20 @@
+/** Public paths — `public/gallery` (ordered for marquee). */
+export const galleryImagePaths: readonly string[] = [
+  "/gallery/one.jpeg",
+  "/gallery/two.jpeg",
+  "/gallery/three.jpeg",
+  "/gallery/four.jpg",
+  "/gallery/five.jpeg",
+  "/gallery/six.jpeg",
+  "/gallery/seven.jpeg",
+  "/gallery/eight.jpeg",
+  "/gallery/nine.jpeg",
+  "/gallery/tenth.jpeg",
+  "/gallery/eleven.jpeg",
+  "/gallery/twleve.jpeg",
+  "/gallery/thirteen.jpeg",
+  "/gallery/fourteeen.jpeg",
+  "/gallery/fifteen.jpeg",
+  "/gallery/sixteen.jpg",
+  "/gallery/seventeen.jpg",
+];

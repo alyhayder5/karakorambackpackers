@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0c;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --accent: #ff5c3d;
+  --accent-hover: #ff7a5c;
+  --surface: #141418;
+  --surface-elevated: #1c1c22;
+  --ring-glow: rgba(255, 92, 61, 0.15);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 35%, transparent);
+  color: var(--foreground);
+}
+
+/* Home gallery — seamless horizontal marquees */
+@keyframes gallery-marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes gallery-marquee-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.gallery-marquee-track-left {
+  animation: gallery-marquee-left 108s linear infinite;
+}
+
+.gallery-marquee-track-right {
+  animation: gallery-marquee-right 124s linear infinite;
+}
+
+.gallery-marquee-block:hover .gallery-marquee-track-left,
+.gallery-marquee-block:hover .gallery-marquee-track-right {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-marquee-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: color-mix(in oklab, var(--accent) 50%, transparent) transparent;
+  }
+
+  .gallery-marquee-track-left,
+  .gallery-marquee-track-right {
+    animation: none;
+  }
+
+  .gallery-marquee-pin {
+    position: relative !important;
+    top: auto !important;
+    min-height: auto !important;
+  }
+
+  .gallery-marquee-pin-inner {
+    min-height: auto !important;
+    padding-block: 2rem;
+  }
+
+  .gallery-scroll-spacer {
+    min-height: 0 !important;
+  }
+}
+
+/** Full-bleed edge shade + soft center window (covers full pinned viewport height). */
+.gallery-premium-vignette {
+  --gallery-base: #050506;
+  background:
+    radial-gradient(
+      ellipse 95% 80% at 50% 45%,
+      transparent 26%,
+      color-mix(in oklab, var(--gallery-base) 45%, transparent) 72%,
+      var(--gallery-base) 100%
+    ),
+    linear-gradient(
+      to right,
+      var(--gallery-base) 0%,
+      color-mix(in oklab, var(--gallery-base) 92%, transparent) 14%,
+      transparent 36%,
+      transparent 64%,
+      color-mix(in oklab, var(--gallery-base) 92%, transparent) 86%,
+      var(--gallery-base) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      var(--gallery-base) 0%,
+      color-mix(in oklab, var(--gallery-base) 90%, transparent) 10%,
+      transparent 28%,
+      transparent 72%,
+      color-mix(in oklab, var(--gallery-base) 90%, transparent) 90%,
+      var(--gallery-base) 100%
+    );
+  box-shadow:
+    inset 0 0 min(28vw, 280px) min(11vw, 120px) rgba(5, 5, 6, 0.78),
+    inset 0 min(28vh, 200px) 0 0 rgba(5, 5, 6, 0.35),
+    inset 0 calc(-1 * min(28vh, 200px)) 0 0 rgba(5, 5, 6, 0.35);
+}
+
+.gallery-noise-overlay {
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.64' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)' opacity='0.52'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* Gallery — isometric “floating cards” ribbon */
+.gallery-isometric-shell {
+  perspective: min(1500px, 130vw);
+  perspective-origin: 50% 36%;
+}
+
+.gallery-isometric-tilt {
+  transform-style: preserve-3d;
+  transform: rotateX(10.5deg) rotateY(-14deg) rotateZ(0.35deg);
+  transform-origin: 50% 42%;
+}
+
+@media (max-width: 640px) {
+  .gallery-isometric-tilt {
+    transform: rotateX(7deg) rotateY(-10deg) rotateZ(0.2deg);
+  }
+
+  .gallery-isometric-shell {
+    perspective-origin: 50% 40%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-isometric-tilt {
+    transform: none;
+  }
+}
+
+.gallery-float-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.09) inset,
+    0 22px 44px -14px rgba(0, 0, 0, 0.72),
+    0 48px 96px -28px rgba(0, 0, 0, 0.52),
+    0 72px 140px -48px rgba(0, 0, 0, 0.38);
+}
+
+.gallery-float-card:nth-child(4n + 1) {
+  transform: translate3d(0, 0, 22px);
+}
+
+.gallery-float-card:nth-child(4n + 2) {
+  transform: translate3d(0, 0, 8px);
+}
+
+.gallery-float-card:nth-child(4n + 3) {
+  transform: translate3d(0, 0, 16px);
+}
+
+.gallery-float-card:nth-child(4n) {
+  transform: translate3d(0, 0, 4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-float-card:nth-child(n) {
+    transform: none;
+  }
 }
