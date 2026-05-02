@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   memo,
   useEffect,
@@ -77,6 +78,43 @@ function catmullRomToBezierD(points: { x: number; y: number }[]): string {
 function ptOnCircle(cx: number, cy: number, r: number, angleDeg: number) {
   const a = ((angleDeg - 90) * Math.PI) / 180;
   return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+}
+
+/** PNG flags from CDN — emoji flags often render as blank boxes on Windows without color emoji fonts. */
+function RegionFlagImage({
+  code,
+  name: regionName,
+}: {
+  code: string;
+  name: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  const iso = code.toLowerCase();
+  const src = `https://flagcdn.com/w40/${iso}.png`;
+
+  if (failed) {
+    return (
+      <span
+        className="flex h-5 min-w-[2rem] shrink-0 items-center justify-center rounded border border-white/15 bg-white/10 px-1 text-[0.6rem] font-bold tabular-nums text-zinc-200"
+        aria-hidden
+      >
+        {code}
+      </span>
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt=""
+      width={40}
+      height={30}
+      className="h-5 w-[1.75rem] shrink-0 rounded-sm object-cover shadow-[0_2px_8px_rgba(0,0,0,0.35)] ring-1 ring-white/15"
+      loading="lazy"
+      onError={() => setFailed(true)}
+      title={regionName}
+    />
+  );
 }
 
 function arcPath(
@@ -813,12 +851,7 @@ function TrustStatsVisualizationInner() {
                   className="group inline-flex cursor-default items-center gap-2.5 rounded-full border border-white/[0.1] bg-gradient-to-b from-white/[0.08] to-white/[0.02] px-3 py-2 shadow-[0_12px_32px_-18px_rgba(0,0,0,0.75)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-amber-400/35 hover:shadow-[0_16px_40px_-16px_rgba(255,92,61,0.28)] sm:px-4 sm:py-2.5"
                   title={c.name}
                 >
-                  <span
-                    className="text-lg leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] sm:text-xl"
-                    aria-hidden
-                  >
-                    {c.flag}
-                  </span>
+                  <RegionFlagImage code={c.code} name={c.name} />
                   <span className="max-w-[7rem] truncate text-xs font-medium tracking-wide text-zinc-300 sm:max-w-none">
                     {c.name}
                   </span>
