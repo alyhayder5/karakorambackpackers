@@ -19,22 +19,23 @@ export const TRIPS_BY_YEAR = [
   { year: 2026, trips: 76, international: 58, local: 18 },
 ] as const;
 
-export type ClientRegion = { code: string; flag: string; name: string };
+/** ISO 3166-1 alpha-2 — used for reliable flag images (emoji flags break on many Windows setups). */
+export type ClientRegion = { code: string; name: string };
 
 export const CLIENT_REGIONS: readonly ClientRegion[] = [
-  { code: "PK", flag: "🇵🇰", name: "Pakistan" },
-  { code: "US", flag: "🇺🇸", name: "United States" },
-  { code: "GB", flag: "🇬🇧", name: "United Kingdom" },
-  { code: "DE", flag: "🇩🇪", name: "Germany" },
-  { code: "FR", flag: "🇫🇷", name: "France" },
-  { code: "AE", flag: "🇦🇪", name: "UAE" },
-  { code: "AU", flag: "🇦🇺", name: "Australia" },
-  { code: "CA", flag: "🇨🇦", name: "Canada" },
-  { code: "CN", flag: "🇨🇳", name: "China" },
-  { code: "JP", flag: "🇯🇵", name: "Japan" },
-  { code: "NL", flag: "🇳🇱", name: "Netherlands" },
-  { code: "TR", flag: "🇹🇷", name: "Turkey" },
-  { code: "CH", flag: "🇨🇭", name: "Switzerland" },
-  { code: "NO", flag: "🇳🇴", name: "Norway" },
-  { code: "ZA", flag: "🇿🇦", name: "South Africa" },
+  { code: "PK", name: "Pakistan" },
+  { code: "US", name: "United States" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "DE", name: "Germany" },
+  { code: "FR", name: "France" },
+  { code: "AE", name: "UAE" },
+  { code: "AU", name: "Australia" },
+  { code: "CA", name: "Canada" },
+  { code: "CN", name: "China" },
+  { code: "JP", name: "Japan" },
+  { code: "NL", name: "Netherlands" },
+  { code: "TR", name: "Turkey" },
+  { code: "CH", name: "Switzerland" },
+  { code: "NO", name: "Norway" },
+  { code: "ZA", name: "South Africa" },
 ] as const;
