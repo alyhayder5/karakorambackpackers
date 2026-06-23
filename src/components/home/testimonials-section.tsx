@@ -9,10 +9,10 @@ export function TestimonialsSection() {
       <div className="container-premium">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+            <p className="mb-2 section-eyebrow">
               Traveler Stories
             </p>
-            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="section-title section-title-center text-4xl font-bold tracking-tight md:text-5xl">
               What Our Travelers Say
             </h2>
           </div>

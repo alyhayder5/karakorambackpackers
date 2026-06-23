@@ -16,10 +16,10 @@ export function FeaturedTours() {
         <ScrollReveal>
           <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
             <div>
-              <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+              <p className="mb-2 section-eyebrow">
                 Curated Expeditions
               </p>
-              <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+              <h2 className="section-title text-4xl font-bold tracking-tight md:text-5xl">
                 Featured Tours
               </h2>
             </div>

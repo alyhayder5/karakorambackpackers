@@ -7,7 +7,6 @@ import { WhyChooseUs } from "@/components/home/why-choose-us";
 import { AdventureCategories } from "@/components/home/adventure-categories";
 import { ExperienceGallery } from "@/components/home/experience-gallery";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
-import { BlogSection } from "@/components/home/blog-section";
 import { FinalCTA } from "@/components/home/final-cta";
 
 export function HomeView() {
@@ -22,7 +21,6 @@ export function HomeView() {
         <AdventureCategories />
         <ExperienceGallery />
         <TestimonialsSection />
-        <BlogSection />
         <FinalCTA />
       </main>
       <Footer />

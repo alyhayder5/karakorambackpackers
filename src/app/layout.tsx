@@ -26,7 +26,7 @@ const display = Playfair_Display({
 const siteUrl = getSiteUrl();
 
 export const viewport: Viewport = {
-  themeColor: "#020617",
+  themeColor: "#0b121e",
   width: "device-width",
   initialScale: 1,
 };

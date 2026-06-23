@@ -1,23 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Menu, Moon, Sun, X, Mountain } from "lucide-react";
+import { Suspense, useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/layout/brand-logo";
 import { cn } from "@/lib/utils";
-import { siteName } from "@/lib/site";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
   { href: "/tours", label: "Tours" },
   { href: "/tours?category=Mountaineering", label: "Expeditions" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
-export function Navbar() {
+function NavbarContent() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -30,33 +33,48 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isNavActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/tours") {
+      return pathname === "/tours" && searchParams.get("category") !== "Mountaineering";
+    }
+    if (href === "/tours?category=Mountaineering") {
+      return pathname === "/tours" && searchParams.get("category") === "Mountaineering";
+    }
+    const path = href.split("?")[0];
+    return pathname === path || pathname.startsWith(`${path}/`);
+  };
+
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled ? "glass-nav py-3 shadow-lg" : "bg-transparent py-5",
+        "fixed inset-x-0 top-0 z-50 border-b border-primary/20 bg-background/95 backdrop-blur-md transition-all duration-300",
+        scrolled ? "py-3 shadow-lg shadow-black/25" : "py-4",
       )}
     >
+      <div className="brand-stripe absolute inset-x-0 top-0" aria-hidden />
       <div className="container-premium flex items-center justify-between">
-        <Link href="/" className="group flex items-center gap-2.5">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 ring-1 ring-primary/30 transition-all group-hover:bg-primary/25">
-            <Mountain className="h-5 w-5 text-primary" />
-          </div>
-          <span className="hidden text-lg font-bold tracking-tight sm:block">
-            {siteName}
-          </span>
-        </Link>
+        <BrandLogo priority className="pt-0.5" />
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:bg-surface-elevated/60 hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = isNavActive(link.href);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  isActive
+                    ? "text-primary"
+                    : "text-muted hover:bg-surface-elevated/60 hover:text-primary",
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -75,11 +93,6 @@ export function Navbar() {
               )}
             </Button>
           )}
-          <Link href="/login" className="hidden sm:block">
-            <Button variant="ghost" size="sm">
-              Admin
-            </Button>
-          </Link>
           <Link href="/tours" className="hidden sm:block">
             <Button size="sm">Book Now</Button>
           </Link>
@@ -98,23 +111,27 @@ export function Navbar() {
       {mobileOpen && (
         <div className="glass-nav border-t border-border lg:hidden">
           <nav className="container-premium flex flex-col gap-1 py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-surface-elevated"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="mt-2 flex gap-2 border-t border-border pt-4">
-              <Link href="/login" className="flex-1" onClick={() => setMobileOpen(false)}>
-                <Button variant="outline" className="w-full" size="sm">
-                  Admin
-                </Button>
-              </Link>
-              <Link href="/tours" className="flex-1" onClick={() => setMobileOpen(false)}>
+            {navLinks.map((link) => {
+              const isActive = isNavActive(link.href);
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "hover:bg-surface-elevated",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <div className="mt-2 border-t border-border pt-4">
+              <Link href="/tours" onClick={() => setMobileOpen(false)}>
                 <Button className="w-full" size="sm">
                   Book Now
                 </Button>
@@ -124,5 +141,13 @@ export function Navbar() {
         </div>
       )}
     </header>
+  );
+}
+
+export function Navbar() {
+  return (
+    <Suspense fallback={null}>
+      <NavbarContent />
+    </Suspense>
   );
 }

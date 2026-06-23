@@ -18,7 +18,7 @@ export function FinalCTA() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-black/60 to-primary/25" />
       </div>
 
       <div className="relative z-10 section-padding">

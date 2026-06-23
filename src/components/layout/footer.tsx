@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  Mountain,
   Mail,
   Phone,
   MapPin,
@@ -8,6 +7,7 @@ import {
   Globe,
   Video,
 } from "lucide-react";
+import { BrandLogo } from "@/components/layout/brand-logo";
 import {
   siteName,
   siteAddressLine,
@@ -21,31 +21,21 @@ const footerLinks = {
     { href: "/destinations", label: "Destinations" },
     { href: "/tours", label: "Tours" },
     { href: "/gallery", label: "Gallery" },
-    { href: "/blog", label: "Blog" },
   ],
   company: [
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact" },
     { href: "/tours?category=Mountaineering", label: "Expeditions" },
   ],
-  account: [
-    { href: "/login", label: "Admin Login" },
-    { href: "/dashboard", label: "Dashboard" },
-  ],
 };
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-primary/20 bg-surface">
       <div className="container-premium section-padding pb-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 ring-1 ring-primary/30">
-                <Mountain className="h-5 w-5 text-primary" />
-              </div>
-              <span className="text-lg font-bold">{siteName}</span>
-            </Link>
+            <BrandLogo imageClassName="h-14" />
             <p className="max-w-xs text-sm leading-relaxed text-muted">
               Premier adventure travel across Gilgit-Baltistan. Expert guides,
               unforgettable expeditions, and the raw beauty of the Karakoram.
@@ -65,7 +55,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
               Explore
             </h4>
             <ul className="space-y-2.5">
@@ -83,7 +73,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
               Company
             </h4>
             <ul className="space-y-2.5">
@@ -101,7 +91,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
               Contact
             </h4>
             <ul className="space-y-3">

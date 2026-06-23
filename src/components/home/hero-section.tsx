@@ -16,30 +16,30 @@ export function HeroSection() {
       <div className="relative z-10 w-full pb-16 pt-32 md:pb-24">
         <div className="container-premium">
           <ScrollReveal>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+            <p className="mb-4 section-eyebrow">
               Gilgit-Baltistan · Pakistan
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={1}>
-            <h1 className="max-w-4xl font-[family-name:var(--font-display)] text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
-              Explore Pakistan&apos;s{" "}
-              <span className="text-gradient">Greatest Adventures</span>
+            <h1 className="max-w-4xl font-[family-name:var(--font-display)] text-5xl font-bold uppercase leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
+              Karakoram
+              <br />
+              <span className="text-primary text-brand-glow">Backpackers</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={2}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
-              Discover the breathtaking mountains, valleys, lakes, and cultures
-              of Gilgit Baltistan with expert local guides.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/90 md:text-xl">
+              Discover the Majestic Karakoram, Hindukush, and Himalayas.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={3}>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/tours">
-                <Button size="lg" className="gap-2">
-                  Explore Tours
+                <Button size="lg" className="gap-2 rounded-md">
+                  Join us Now
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
@@ -57,7 +57,7 @@ export function HeroSection() {
                   key={stat.label}
                   className="glass-card rounded-2xl p-5 text-center card-lift"
                 >
-                  <p className="text-2xl font-bold text-foreground md:text-3xl">
+                  <p className="text-2xl font-bold text-primary md:text-3xl">
                     {stat.value}
                   </p>
                   <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted">
