@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/site";
 import { tours } from "@/lib/data/tours";
 import { destinations } from "@/lib/data/destinations";
-import { blogPosts } from "@/lib/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
@@ -15,8 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/gallery",
     "/about",
     "/contact",
-    "/blog",
-    "/login",
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified,
@@ -38,12 +35,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const blogPages = blogPosts.map((p) => ({
-    url: `${base}/blog/${p.slug}`,
-    lastModified: new Date(p.datePublished),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  return [...staticPages, ...tourPages, ...destinationPages, ...blogPages];
+  return [...staticPages, ...tourPages, ...destinationPages];
 }
