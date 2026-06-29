@@ -52,7 +52,6 @@ function NavbarContent() {
         scrolled ? "py-3 shadow-lg shadow-black/25" : "py-4",
       )}
     >
-      <div className="brand-stripe absolute inset-x-0 top-0" aria-hidden />
       <div className="container-premium flex items-center justify-between">
         <BrandLogo priority className="pt-0.5" />
 

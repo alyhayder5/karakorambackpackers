@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { getFeaturedDestinations } from "@/lib/data/destinations";
-import { cn } from "@/lib/utils";
 
 export function DestinationsBento() {
   const destinations = getFeaturedDestinations();
@@ -16,7 +15,7 @@ export function DestinationsBento() {
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
               Where We Go
             </p>
-            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight md:text-5xl">
               Popular Destinations
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted">
@@ -26,26 +25,23 @@ export function DestinationsBento() {
           </div>
         </ScrollReveal>
 
-        <div className="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[220px]">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {destinations.map((dest, i) => (
             <ScrollReveal
               key={dest.slug}
               delay={(i % 3) as 0 | 1 | 2 | 3}
-              className={cn(
-                dest.bentoSize === "large" && "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2",
-                dest.bentoSize === "medium" && "sm:row-span-2 lg:row-span-2",
-              )}
+              className="h-full"
             >
               <Link
                 href={`/destinations/${dest.slug}`}
-                className="group relative block h-full min-h-[200px] overflow-hidden rounded-3xl border border-border card-lift"
+                className="group relative block aspect-[4/5] overflow-hidden rounded-3xl border border-border card-lift"
               >
                 <Image
                   src={dest.image}
                   alt={dest.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -55,7 +51,7 @@ export function DestinationsBento() {
                       <p className="text-xs font-medium uppercase tracking-wider text-accent">
                         {dest.tagline}
                       </p>
-                      <h3 className="mt-1 text-2xl font-bold text-white lg:text-3xl">
+                      <h3 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-bold text-white lg:text-3xl">
                         {dest.name}
                       </h3>
                       <div className="mt-3 flex flex-wrap gap-3">
