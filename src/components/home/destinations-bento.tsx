@@ -26,14 +26,18 @@ export function DestinationsBento() {
           </div>
         </ScrollReveal>
 
-        <div className="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[220px]">
+        <div className="grid grid-flow-dense auto-rows-[minmax(200px,1fr)] grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[220px] lg:grid-cols-4">
           {destinations.map((dest, i) => (
             <ScrollReveal
               key={dest.slug}
               delay={(i % 3) as 0 | 1 | 2 | 3}
               className={cn(
-                dest.bentoSize === "large" && "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2",
+                "h-full min-h-[200px]",
+                dest.bentoSize === "large" &&
+                  "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2",
                 dest.bentoSize === "medium" && "sm:row-span-2 lg:row-span-2",
+                dest.bentoSize === "small" &&
+                  "sm:col-span-2 lg:col-span-2 lg:row-span-1",
               )}
             >
               <Link

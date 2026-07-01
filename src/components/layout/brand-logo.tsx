@@ -21,7 +21,7 @@ export function BrandLogo({
         alt={siteName}
         width={200}
         height={80}
-        className={cn("h-11 w-auto sm:h-14", imageClassName)}
+        className={cn("h-11 w-auto sm:h-[90px]", imageClassName)}
         priority={priority}
       />
     </Link>
