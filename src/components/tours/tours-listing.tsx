@@ -152,31 +152,6 @@ export function ToursListing({ tours: allTours }: TourFiltersProps) {
             </option>
           ))}
         </select>
-        <select
-          value={difficulty}
-          onChange={(e) => {
-            setDifficulty(e.target.value);
-            setPage(1);
-          }}
-          className="h-11 rounded-xl border border-border bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          <option value="all">All Difficulties</option>
-          <option value="Easy">Easy</option>
-          <option value="Moderate">Moderate</option>
-          <option value="Challenging">Challenging</option>
-          <option value="Expert">Expert</option>
-        </select>
-        <select
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-          className="h-11 rounded-xl border border-border bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          <option value="featured">Featured</option>
-          <option value="price-low">Price: Low to High</option>
-          <option value="price-high">Price: High to Low</option>
-          <option value="rating">Highest Rated</option>
-          <option value="duration">Duration</option>
-        </select>
       </div>
 
       <p className="mb-6 text-sm text-muted">

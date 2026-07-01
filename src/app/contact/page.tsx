@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { toast } from "sonner";
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,7 +36,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         <section className="pb-12 pt-8">
           <div className="container-premium">

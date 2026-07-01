@@ -13,7 +13,6 @@ import {
   MapPin,
 } from "lucide-react";
 import { toast } from "sonner";
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -44,7 +43,6 @@ export function TourDetailView({ tour }: { tour: Tour }) {
 
   return (
     <>
-      <Navbar />
       <main>
         <section className="relative h-[60vh] min-h-[400px]">
           <Image

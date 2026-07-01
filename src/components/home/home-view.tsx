@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/home/hero-section";
 import { FeaturedTours } from "@/components/home/featured-tours";
@@ -12,7 +11,6 @@ import { FinalCTA } from "@/components/home/final-cta";
 export function HomeView() {
   return (
     <>
-      <Navbar />
       <main>
         <HeroSection />
         <FeaturedTours />
