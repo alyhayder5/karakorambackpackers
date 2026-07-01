@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -13,14 +13,12 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
   { href: "/tours", label: "Tours" },
-  { href: "/tours?category=Mountaineering", label: "Expeditions" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
-function NavbarContent() {
+export function Navbar() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -29,21 +27,19 @@ function NavbarContent() {
   useEffect(() => {
     setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   const isNavActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    if (href === "/tours") {
-      return pathname === "/tours" && searchParams.get("category") !== "Mountaineering";
-    }
-    if (href === "/tours?category=Mountaineering") {
-      return pathname === "/tours" && searchParams.get("category") === "Mountaineering";
-    }
-    const path = href.split("?")[0];
-    return pathname === path || pathname.startsWith(`${path}/`);
-  };
+    return pathname === href;
+    };
 
   return (
     <header
@@ -53,7 +49,7 @@ function NavbarContent() {
       )}
     >
       <div className="container-premium flex items-center justify-between">
-        <BrandLogo priority className="pt-0.5" />
+        <BrandLogo priority className="pt-0 pb-0" />
 
         <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
@@ -77,21 +73,20 @@ function NavbarContent() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {mounted && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-              className="hidden sm:flex"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
-          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+            className="hidden sm:flex"
+            disabled={!mounted}
+          >
+            {mounted && theme === "dark" ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </Button>
           <Link href="/tours" className="hidden sm:block">
             <Button size="sm">Book Now</Button>
           </Link>
@@ -140,13 +135,5 @@ function NavbarContent() {
         </div>
       )}
     </header>
-  );
-}
-
-export function Navbar() {
-  return (
-    <Suspense fallback={null}>
-      <NavbarContent />
-    </Suspense>
   );
 }

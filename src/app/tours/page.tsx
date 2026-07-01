@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ToursListing } from "@/components/tours/tours-listing";
 import { tours } from "@/lib/data/tours";
@@ -12,7 +11,6 @@ export const metadata = {
 export default function ToursPage() {
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         <section className="relative overflow-hidden pb-12 pt-8">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />

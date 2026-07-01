@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import {
   Dialog,
@@ -26,7 +25,6 @@ export default function GalleryPage() {
 
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         <section className="pb-12 pt-8">
           <div className="container-premium">

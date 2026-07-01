@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { destinations } from "@/lib/data/destinations";
@@ -14,7 +13,6 @@ export const metadata = {
 export default function DestinationsPage() {
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         <section className="pb-12 pt-8">
           <div className="container-premium">

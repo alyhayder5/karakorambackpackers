@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MapPin } from "lucide-react";
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { TourCard } from "@/components/tours/tours-listing";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -41,7 +40,6 @@ export default async function DestinationDetailPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         <section className="relative h-[50vh] min-h-[360px]">
           <Image

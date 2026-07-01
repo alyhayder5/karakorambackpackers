@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { companyStats, teamMembers } from "@/lib/data/blog";
@@ -13,7 +12,6 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
       <main className="pt-24">
         <section className="relative overflow-hidden pb-16 pt-8">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
