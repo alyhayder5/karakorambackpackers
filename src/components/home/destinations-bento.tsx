@@ -60,6 +60,7 @@ export function DestinationsBento() {
                             key={stat.label}
                             className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm"
                           >
+                            
                             {stat.value} {stat.label}
                           </span>
                         ))}
