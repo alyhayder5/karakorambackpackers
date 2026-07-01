@@ -9,11 +9,11 @@ import { HeroVideo } from "@/components/home/hero-video";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-screen items-end overflow-hidden">
+    <section className="relative flex min-h-[100dvh] items-end overflow-x-hidden">
       <HeroVideo />
       <div className="hero-overlay absolute inset-0" aria-hidden />
 
-      <div className="relative z-10 w-full pb-16 pt-32 md:pb-24">
+      <div className="relative z-10 w-full pb-10 pt-28 sm:pb-16 sm:pt-32 md:pb-20">
         <div className="container-premium">
           <ScrollReveal>
             <p className="mb-4 section-eyebrow">
@@ -51,7 +51,7 @@ export function HeroSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={3}>
-            <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4 md:mt-24">
+            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 md:mt-16">
               {heroStats.map((stat) => (
                 <div
                   key={stat.label}

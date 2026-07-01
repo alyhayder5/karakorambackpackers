@@ -1,4 +1,4 @@
-import { Playfair_Display, Inter } from "next/font/google";
+import { Fraunces, Outfit } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import { Providers } from "@/components/providers/providers";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
@@ -11,13 +11,13 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
-const sans = Inter({
+const sans = Outfit({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const display = Playfair_Display({
+const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["600", "700", "800"],

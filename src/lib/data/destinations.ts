@@ -130,9 +130,9 @@ export const destinations: Destination[] = [
     description: "Dramatic spires, glaciers, and the world's most scenic highway corridor.",
     overview:
       "Passu village sits beneath the iconic Passu Cones (Cathedral Spires) along the Karakoram Highway. Batura Glacier, Borith Lake, and the famous Hussaini suspension bridge await adventurous travelers.",
-    image: "https://images.unsplash.com/photo-1486870591958-9d9d0d4734c9?w=1200&q=85",
+    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=85",
     images: [
-      "https://images.unsplash.com/photo-1486870591958-9d9d0d4734c9?w=1200&q=85",
+      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=85",
     ],
     elevation: "2,500m",
     bestTime: "April – October",
