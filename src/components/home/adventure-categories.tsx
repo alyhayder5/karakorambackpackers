@@ -7,10 +7,13 @@ import {
   Map,
   Building2,
   type LucideIcon,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { adventureCategories } from "@/lib/data/content";
+import { Button } from "../ui/button";
 
 const iconMap: Record<string, LucideIcon> = {
   Footprints: Compass,
@@ -25,15 +28,21 @@ export function AdventureCategories() {
   return (
     <section className="section-padding bg-surface">
       <div className="container-premium">
-        <ScrollReveal>
-          <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Find Your Adventure
-            </p>
-            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
-              Adventure Categories
-            </h2>
-          </div>
+        <ScrollReveal delay={1} className="mb-12 text-center">
+          <SectionHeading
+            align="center"
+            eyebrow="Find Your Adventure"
+            title="Adventure Categories"
+            description="From gentle cultural circuits to world-class trekking expeditions — find your perfect Gilgit-Baltistan adventure."
+            action={
+              <Link href="/tours">
+                <Button variant="outline" className="gap-2">
+                  View All Tours
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            }
+          />
         </ScrollReveal>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

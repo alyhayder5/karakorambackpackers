@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 import {
   Dialog,
   DialogContent,
@@ -10,6 +11,9 @@ import {
 } from "@/components/ui/dialog";
 import { galleryImages } from "@/lib/data/content";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const heightMap = {
   short: "h-48",
@@ -25,15 +29,21 @@ export function ExperienceGallery() {
   return (
     <section className="section-padding bg-background">
       <div className="container-premium">
-        <ScrollReveal>
-          <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Visual Journey
-            </p>
-            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
-              Experience Gallery
-            </h2>
-          </div>
+        <ScrollReveal delay={1} className="mb-12">
+          <SectionHeading
+            align="center"
+            eyebrow="Visual Journey"
+            title="Experience Gallery"
+            description="Moments captured across the Karakoram from sunrise at K2 Base Camp to starlit nights in Fairy Meadows."
+            action={
+              <Link href="/gallery">
+                <Button variant="outline" className="gap-2">
+                  View All Gallery
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            }
+          />
         </ScrollReveal>
 
         <div className="masonry-grid">

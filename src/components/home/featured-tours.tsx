@@ -4,6 +4,7 @@ import { Star, Clock, Users, Mountain, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { getFeaturedTours } from "@/lib/data/tours";
 import { formatPrice } from "@/lib/utils";
 
@@ -13,23 +14,18 @@ export function FeaturedTours() {
   return (
     <section className="section-padding bg-background">
       <div className="container-premium">
-        <ScrollReveal>
-          <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <p className="mb-2 section-eyebrow">
-                Curated Expeditions
-              </p>
-              <h2 className="section-title text-4xl font-bold tracking-tight md:text-5xl">
-                Featured Tours
-              </h2>
-            </div>
-            <Link href="/tours">
-              <Button variant="outline" className="gap-2">
-                View All Tours
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
+        <ScrollReveal delay={1} className="mb-12 text-center">
+          <SectionHeading
+            eyebrow="Curated Expeditions"
+            title="Featured Tours"
+            description="Discover our most popular tours, carefully crafted to showcase the best of Gilgit-Baltistan."
+            action={
+              <Link href="/tours">
+                <Button variant="outline">View All Tours</Button>
+              </Link>
+            }
+            align="center"
+          />
         </ScrollReveal>
 
         <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
