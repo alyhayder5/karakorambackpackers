@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 const CTA_IMAGE =
   "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85";
@@ -14,7 +15,7 @@ export function FinalCTA() {
         <Image
           src={CTA_IMAGE}
           alt="Karakoram mountain panorama"
-          fill
+          fill  
           className="object-cover"
           sizes="100vw"
         />
@@ -23,10 +24,16 @@ export function FinalCTA() {
 
       <div className="relative z-10 section-padding">
         <div className="container-premium text-center">
-          <ScrollReveal>
-            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-display)] text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
-              Ready For The Adventure Of A Lifetime?
-            </h2>
+          <ScrollReveal className="mb-12 text-center">
+            <SectionHeading
+              eyebrow="Your Journey Awaits"
+              title="Ready For The Adventure Of A Lifetime?"
+              align="center"
+              titleClassName="max-w-3xl text-white"
+              className="mb-0"
+              description="Join thousands of travelers who have discovered the magic of Gilgit-Baltistan with our expert guides."
+              
+            />
           </ScrollReveal>
           <ScrollReveal delay={1}>
             <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">

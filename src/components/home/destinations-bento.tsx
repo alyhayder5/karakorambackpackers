@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { getFeaturedDestinations } from "@/lib/data/destinations";
+import { Button } from "../ui/button";
 
 export function DestinationsBento() {
   const destinations = getFeaturedDestinations();
@@ -10,19 +12,18 @@ export function DestinationsBento() {
   return (
     <section className="section-padding bg-surface">
       <div className="container-premium">
-        <ScrollReveal>
-          <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Where We Go
-            </p>
-            <h2 className="font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight md:text-5xl">
-              Popular Destinations
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-muted">
-              From the turquoise lakes of Skardu to the ancient forts of Hunza —
-              explore the crown jewels of Gilgit-Baltistan.
-            </p>
-          </div>
+        <ScrollReveal delay={1} className="mb-12 text-center">
+          <SectionHeading
+            eyebrow="Where We Go"
+            title="Popular Destinations"
+            description="From the turquoise lakes of Skardu to the ancient forts of Hunza, explore the crown jewels of Gilgit-Baltistan."
+            align="center"
+            action={
+              <Link href="/destinations">
+                <Button variant="outline">View All Destinations</Button>
+              </Link>
+            }
+          />
         </ScrollReveal>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -60,7 +61,7 @@ export function DestinationsBento() {
                             key={stat.label}
                             className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm"
                           >
-                            
+
                             {stat.value} {stat.label}
                           </span>
                         ))}

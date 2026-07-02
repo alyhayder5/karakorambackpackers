@@ -1,21 +1,30 @@
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
+import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { testimonials } from "@/lib/data/content";
+import { Button } from "../ui/button";
 
 export function TestimonialsSection() {
   return (
     <section className="section-padding bg-surface">
       <div className="container-premium">
-        <ScrollReveal>
-          <div className="mb-12 text-center">
-            <p className="mb-2 section-eyebrow">
-              Traveler Stories
-            </p>
-            <h2 className="section-title section-title-center text-4xl font-bold tracking-tight md:text-5xl">
-              What Our Travelers Say
-            </h2>
-          </div>
+        <ScrollReveal delay={1} className="mb-12 text-center">
+          <SectionHeading
+            eyebrow="Traveler Stories"
+            title="What Our Travelers Say"
+            description="Hear from our happy clients who have experienced the magic of Gilgit-Baltistan."
+            action={
+              <Link href="/testimonials">
+                <Button variant="outline" className="gap-2">
+                  View All Testimonials
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            }
+            align="center"
+          />
         </ScrollReveal>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
