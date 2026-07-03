@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
+import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { SectionHeading } from "../ui/section-heading";
-import { testimonials, testimonialsSectionContent } from "@/lib/data/content";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { testimonials } from "@/lib/data/content";
+import { Button } from "../ui/button";
 
 export function TestimonialsSection() {
   return (
@@ -10,12 +12,20 @@ export function TestimonialsSection() {
       <div className="container-premium">
         <ScrollReveal delay={1} className="mb-12 text-center">
           <SectionHeading
-            eyebrow={testimonialsSectionContent.eyebrow}
-            title={testimonialsSectionContent.title}
-            description={testimonialsSectionContent.description}
+            eyebrow="Traveler Stories"
+            title="What Our Travelers Say"
+            description="Hear from our happy clients who have experienced the magic of Gilgit-Baltistan."
+            action={
+              <Link href="/testimonials">
+                <Button variant="outline" className="gap-2">
+                  View All Testimonials
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            }
             align="center"
           />
-          </ScrollReveal>
+        </ScrollReveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((t, i) => (

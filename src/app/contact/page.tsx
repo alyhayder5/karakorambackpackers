@@ -57,7 +57,7 @@ export default function ContactPage() {
             <ScrollReveal>
               <form
                 onSubmit={handleSubmit}
-                className="space-y-5 rounded-3xl border border-border bg-surface p-8"
+                className="space-y-5 rounded-3xl border border-border bg-surface p-8 h-full"
               >
                 <h2 className="text-xl font-bold">Send a Message</h2>
                 <div className="grid gap-5 sm:grid-cols-2">

@@ -7,23 +7,33 @@ import {
   Car,
   Headphones,
   type LucideIcon,
+  Link,
   ArrowRight,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { whyChooseContent } from "@/lib/data/content";
-import Link from "next/link";
-import { Button } from "../ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { whyChooseUs } from "@/lib/data/content";
+import { Button } from "../ui/button";
+
+const iconMap: Record<string, LucideIcon> = {
+  Compass,
+  Sparkles,
+  Shield,
+  Leaf,
+  Car,
+  Headphones,
+};
 
 export function WhyChooseUs() {
   return (
     <section className="section-padding bg-background">
       <div className="container-premium">
-        <ScrollReveal delay={1} className="mb-10 text-center">
+      <ScrollReveal delay={1} className="mb-12 text-center">
           <SectionHeading
             align="center"
-            eyebrow={whyChooseContent.eyebrow}
-            title={whyChooseContent.title}
+            eyebrow="The Difference"
+            title="Why Choose Us"
+            description="We are a team of experienced guides who are passionate about the mountains and the people who live in them."
           />
         </ScrollReveal>
 
