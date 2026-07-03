@@ -16,7 +16,7 @@ export function getTrustpilotProfileUrl(): string | undefined {
 }
 
 export const siteDescription =
-  "Premium adventure travel across Gilgit-Baltistan — expert-guided treks to K2 Base Camp, Hunza, Skardu, Fairy Meadows, Deosai, and beyond. Book your expedition today.";
+  "Karakoram Backpackers is a premier adventure travel company specializing in guided trekking, cultural tours, and outdoor experiences across Northern Pakistan — from K2 Basecamp to Fairy Meadows and Deosai.";
 
 export const defaultKeywords = [
   "Karakoram Backpackers",

@@ -1,69 +1,48 @@
 export type Testimonial = {
   id: string;
   name: string;
-  country: string;
-  countryCode: string;
+  role: string;
   rating: number;
   review: string;
   image: string;
-  tour: string;
 };
 
 export const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Sarah Mitchell",
-    country: "United Kingdom",
-    countryCode: "gb",
+    name: "John Peterson",
+    role: "Traveller",
     rating: 5,
     review:
-      "The K2 Base Camp trek exceeded every expectation. Our guide's knowledge of the glacier and local culture made this the adventure of a lifetime. Karakoram Backpackers handled every detail flawlessly.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-    tour: "K2 Base Camp Expedition",
+      "An unforgettable trekking experience! The guides were professional, and the views of K2 Basecamp were breathtaking.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
   },
   {
     id: "2",
-    name: "Marco Rossi",
-    country: "Italy",
-    countryCode: "it",
+    name: "Usman Raza",
+    role: "IT Manager",
     rating: 5,
     review:
-      "Hunza Valley with Karakoram Backpackers felt like traveling with friends who happen to be experts. The Eagle's Nest sunset and Attabad Lake boat ride were magical.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-    tour: "Hunza Valley Cultural Immersion",
+      "A perfect blend of adventure and history! The visit to Altit & Baltit Forts was a highlight of my Pakistan trip. Highly Recommended!",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
   },
   {
     id: "3",
-    name: "Emily Chen",
-    country: "Singapore",
-    countryCode: "sg",
+    name: "Haris Ahmad",
+    role: "Business Owner",
     rating: 5,
     review:
-      "Fairy Meadows at sunrise with Nanga Parbat towering above — I'll never forget it. The team was professional, safety-conscious, and genuinely passionate about their homeland.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
-    tour: "Fairy Meadows & Nanga Parbat",
+      "Camping in Deosai was magical! The team ensured everything was eco-friendly and comfortable. Will definitely book again!",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
   },
   {
     id: "4",
-    name: "James O'Brien",
-    country: "Australia",
-    countryCode: "au",
+    name: "Guest Traveler",
+    role: "Teacher",
     rating: 5,
     review:
-      "Deosai Plains safari was unlike anything I've experienced. We spotted a Himalayan brown bear and camped under a sky full of stars. Premium service from start to finish.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
-    tour: "Deosai Plains Jeep Safari",
-  },
-  {
-    id: "5",
-    name: "Anna Kowalski",
-    country: "Poland",
-    countryCode: "pl",
-    rating: 5,
-    review:
-      "As a solo female traveler, I felt completely safe and welcomed. The custom itinerary through Skardu and Khaplu was perfectly paced. Already planning my return for K2.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80",
-    tour: "Skardu Lakes Expedition",
+      "Hiking to Fairy Meadows with Karakoram Backpackers was a dream come true. Well-organized, safe, and incredibly scenic!",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
   },
 ];
 
@@ -74,38 +53,119 @@ export const heroStats = [
   { value: "10+", label: "Years Experience" },
 ];
 
-export const whyChooseUs = [
+export const whyChooseContent = {
+  eyebrow: "We are the Best!",
+  title: "Why Choose Karakoram Backpackers?",
+  paragraphs: [
+    "At Karakoram Backpackers, we offer unforgettable adventures across Northern Pakistan, from K2 Basecamp to Fairy Meadows and Deosai Plains. With expert local guides and seamless logistics, we ensure a hassle-free experience for all travelers.",
+    "We prioritize eco-friendly tourism, practicing zero-waste camping, and supporting local communities through homestays. With trusted accommodations and transport partners, we make every journey smooth, enriching, and truly unforgettable. Join us for lifetime memories and thrilling adventures.",
+  ],
+};
+
+export const comfortSectionContent = {
+  title: "Our Comfort",
+  description:
+    "At Karakoram Backpackers, we make every journey comfortable, seamless, and unforgettable. With cozy stays, thrilling camping, self-cooking experiences, adventure trekking, smooth transport, and expert service, you can focus on the adventure while we handle the rest.",
+};
+
+export const comfortFeatures = [
   {
-    title: "Local Expert Guides",
-    description: "Born and raised in Gilgit-Baltistan, our guides share generations of mountain knowledge.",
+    title: "Secret Location",
+    description:
+      "Explore hidden trails and untouched landscapes, far from the crowds.",
+    icon: "MapPin",
+  },
+  {
+    title: "Expert Guides",
+    description:
+      "Travel with experienced guides who ensure a safe and insightful journey.",
     icon: "Compass",
   },
   {
-    title: "Personalized Experiences",
-    description: "Every itinerary is tailored to your pace, interests, and comfort level.",
-    icon: "Sparkles",
+    title: "Great Waterfall",
+    description:
+      "Visit stunning waterfalls nestled in the heart of breathtaking valleys.",
+    icon: "Droplets",
   },
   {
-    title: "Safe Adventures",
-    description: "Certified guides, emergency protocols, and satellite communication on every trek.",
-    icon: "Shield",
-  },
-  {
-    title: "Sustainable Tourism",
-    description: "Leave-no-trace principles and community partnerships that benefit local villages.",
-    icon: "Leaf",
-  },
-  {
-    title: "Premium Transportation",
-    description: "Modern 4x4 vehicles and well-maintained camping equipment for every expedition.",
+    title: "Seamless Travel",
+    description:
+      "Enjoy smooth transport, cozy stays, and well-planned itineraries.",
     icon: "Car",
   },
+];
+
+export const founderStaffContent = {
+  title: "Our Founder & Staff",
+  paragraphs: [
+    "Karakoram Backpackers is an adventure travel company based in Gilgit Baltistan. We specialize in customized tours across northern Pakistan and focus on sustainable tourism, offering authentic experiences in the Karakoram, Hindukush, and Himalayas.",
+    "Our team of experts ensures safe, enriching trips, connecting travelers with the region's natural beauty and culture.",
+    "Get in touch with us to plan your next adventure!",
+  ],
+  image:
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+};
+
+export const exploreMoreContent = {
+  eyebrow: "Explore More",
+  title: "Discover the incredible treks led by our experienced team",
+  description:
+    "Explore breathtaking mountains, hidden valleys, and scenic trails. Join us for a journey you'll never forget!",
+  image:
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
+};
+
+export type PricingPlan = {
+  tier: string;
+  tagline: string;
+  description: string;
+  highlights: string[];
+  featured?: boolean;
+};
+
+export const pricingPlans: PricingPlan[] = [
   {
-    title: "24/7 Support",
-    description: "Round-the-clock assistance from booking through your return journey.",
-    icon: "Headphones",
+    tier: "Economical",
+    tagline: "Smart Travel, Unbeatable Value",
+    description:
+      "Perfect for budget-conscious travelers who want authentic Karakoram experiences without compromise on safety or local expertise.",
+    highlights: [
+      "Shared transport & group departures",
+      "Camping & guesthouse stays",
+      "Certified local guides",
+    ],
+  },
+  {
+    tier: "Executive",
+    tagline: "Elevated Comfort, Premium Convenience",
+    description:
+      "A balanced package with upgraded accommodations, flexible pacing, and enhanced comfort for families and small groups.",
+    highlights: [
+      "Private 4x4 transport",
+      "Mid-range hotels & camps",
+      "Customizable daily itinerary",
+    ],
+    featured: true,
+  },
+  {
+    tier: "Deluxe",
+    tagline: "Unmatched Luxury, Once-in-a-Lifetime Experiences",
+    description:
+      "The ultimate northern Pakistan journey — premium lodges, private guides, and bespoke routes crafted around your dream adventure.",
+    highlights: [
+      "Private guide & vehicle",
+      "Premium lodges & resorts",
+      "Fully bespoke itinerary",
+    ],
   },
 ];
+
+export const testimonialsSectionContent = {
+  eyebrow: "The Testimonial",
+  title: "What Our Clients Say",
+  description:
+    "At Karakoram Backpackers, we believe every journey should be an unforgettable adventure. Our clients come from all walks of life, and their experiences speak for themselves. Here's what they have to say about exploring Northern Pakistan with us:",
+};
 
 export type AdventureCategory = {
   title: string;
