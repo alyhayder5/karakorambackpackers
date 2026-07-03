@@ -80,8 +80,6 @@ export function SectionHeading({
         >
           {title}
         </h2>
-
-        {/* Orange Decorative Underline positioned at the bottom-right of the title container */}
       </div>
 
       {/* Description */}

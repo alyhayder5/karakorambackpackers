@@ -1,3 +1,4 @@
+
 import {
   Compass,
   Sparkles,
@@ -36,24 +37,24 @@ export function WhyChooseUs() {
           />
         </ScrollReveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {whyChooseUs.map((item, i) => {
-            const Icon = iconMap[item.icon] ?? Compass;
-            return (
-              <ScrollReveal key={item.title} delay={(i % 3) as 0 | 1 | 2 | 3}>
-                <div className="glass-card group rounded-3xl p-8 card-lift">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 ring-1 ring-primary/20 transition-all group-hover:bg-primary/20 group-hover:ring-primary/40">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {item.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-            );
-          })}
+        <div className="mx-auto max-w-3xl space-y-5 text-center">
+          {whyChooseContent.paragraphs.map((paragraph, i) => (
+            <ScrollReveal key={i} delay={(i + 1) as 0 | 1 | 2 | 3}>
+              <p className="text-base leading-relaxed text-muted md:text-lg">
+                {paragraph}
+              </p>
+            </ScrollReveal>
+          ))}
         </div>
+
+        <ScrollReveal delay={3} className="mt-10 text-center">
+          <Link href="/about">
+            <Button variant="outline" className="gap-2">
+              Learn More
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+        </ScrollReveal>
       </div>
     </section>
   );
