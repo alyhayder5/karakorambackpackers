@@ -1,11 +1,12 @@
+import { Suspense } from "react";
 import { Footer } from "@/components/layout/footer";
 import { ToursListing } from "@/components/tours/tours-listing";
 import { tours } from "@/lib/data/tours";
 import { siteName } from "@/lib/site";
 
 export const metadata = {
-  title: "Tours & Expeditions",
-  description: `Browse premium adventure tours across Skardu, Hunza, K2 Base Camp, Fairy Meadows, and more with ${siteName}.`,
+  title: "Family & Cultural Tours",
+  description: `Browse festival tours across Skardu, Hunza, Khaplu, Kalash Valley and more with ${siteName}. Shyok Winter Festival, Hunza Winter Festival, Mayfung Fire Festival, and beyond.`,
 };
 
 export default function ToursPage() {
@@ -16,21 +17,24 @@ export default function ToursPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
           <div className="container-premium relative">
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Adventures Await
+              Festival Tours
             </p>
             <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
-              Tours & Expeditions
+              Family & Cultural Tours
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted">
-              From gentle cultural circuits to world-class trekking expeditions
-              — find your perfect Gilgit-Baltistan adventure.
+              From the Shyok Winter Festival in Khaplu to Chilam Joshi in Kalash
+              Valley — join guided group departures across Northern Pakistan&apos;s
+              most vibrant cultural celebrations.
             </p>
           </div>
         </section>
 
         <section className="section-padding pt-0">
           <div className="container-premium">
-            <ToursListing tours={tours} />
+            <Suspense fallback={<p className="text-muted">Loading tours...</p>}>
+              <ToursListing tours={tours} />
+            </Suspense>
           </div>
         </section>
       </main>

@@ -1,13 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Star, Clock, Users, Mountain } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/utils";
-import type { Tour } from "@/lib/data/tours";
+import type { Tour, TourCategory } from "@/lib/data/tours";
+import { tourCategories } from "@/lib/data/tours";
 
 export function TourCard({ tour }: { tour: Tour }) {
   return (
@@ -70,8 +72,16 @@ type TourFiltersProps = {
 };
 
 export function ToursListing({ tours: allTours }: TourFiltersProps) {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+
   const [search, setSearch] = useState("");
   const [destination, setDestination] = useState("all");
+  const [category, setCategory] = useState<string>(
+    categoryParam && tourCategories.includes(categoryParam as TourCategory)
+      ? categoryParam
+      : "all",
+  );
   const [difficulty, setDifficulty] = useState("all");
   const [sort, setSort] = useState("featured");
   const [page, setPage] = useState(1);
@@ -97,6 +107,9 @@ export function ToursListing({ tours: allTours }: TourFiltersProps) {
     if (destination !== "all") {
       result = result.filter((t) => t.destination === destination);
     }
+    if (category !== "all") {
+      result = result.filter((t) => t.category === category);
+    }
     if (difficulty !== "all") {
       result = result.filter((t) => t.difficulty === difficulty);
     }
@@ -119,7 +132,7 @@ export function ToursListing({ tours: allTours }: TourFiltersProps) {
     }
 
     return result;
-  }, [allTours, search, destination, difficulty, sort]);
+  }, [allTours, search, destination, category, difficulty, sort]);
 
   const totalPages = Math.ceil(filtered.length / perPage);
   const paginated = filtered.slice((page - 1) * perPage, page * perPage);
@@ -151,6 +164,35 @@ export function ToursListing({ tours: allTours }: TourFiltersProps) {
               {d}
             </option>
           ))}
+        </select>
+        <select
+          value={category}
+          onChange={(e) => {
+            setCategory(e.target.value);
+            setPage(1);
+          }}
+          className="h-11 rounded-xl border border-border bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          <option value="all">All Categories</option>
+          {tourCategories.map((c) => (
+            <option key={c} value={c}>
+              {c} Tours
+            </option>
+          ))}
+        </select>
+        <select
+          value={sort}
+          onChange={(e) => {
+            setSort(e.target.value);
+            setPage(1);
+          }}
+          className="h-11 rounded-xl border border-border bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="duration">Shortest Duration</option>
         </select>
       </div>
 
