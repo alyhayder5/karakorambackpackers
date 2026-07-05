@@ -65,7 +65,7 @@ export function TourDetailView({ tour }: { tour: Tour }) {
               <div className="mt-4 flex flex-wrap gap-4 text-sm text-white/80">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="h-4 w-4" />
-                  {tour.destination}
+                  {tour.location}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-4 w-4" />
@@ -97,6 +97,10 @@ export function TourDetailView({ tour }: { tour: Tour }) {
               <ScrollReveal>
                 <div>
                   <h2 className="text-2xl font-bold">Itinerary</h2>
+                  <p className="mt-2 text-sm text-muted">
+                    <span className="font-medium text-foreground">Departure point:</span>{" "}
+                    {tour.departurePoint}
+                  </p>
                   <div className="mt-6 space-y-0">
                     {tour.itinerary.map((day, i) => (
                       <div key={day.day} className="relative flex gap-6 pb-8">
@@ -185,7 +189,11 @@ export function TourDetailView({ tour }: { tour: Tour }) {
                     </div>
                     <div className="flex items-center gap-2">
                       <Mountain className="h-4 w-4" />
-                      {tour.difficulty}
+                      {tour.difficulty} · {tour.elevation}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4" />
+                      {tour.trekLocation}
                     </div>
                   </div>
                 </div>

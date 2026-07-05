@@ -1,11 +1,12 @@
 export type Difficulty = "Easy" | "Moderate" | "Challenging" | "Expert";
 export type TourCategory =
+  | "Family"
+  | "Cultural"
   | "Trekking"
   | "Mountaineering"
   | "Jeep Safari"
   | "Photography"
-  | "Camping"
-  | "Cultural";
+  | "Camping";
 
 export type Tour = {
   id: string;
@@ -13,12 +14,16 @@ export type Tour = {
   title: string;
   destination: string;
   destinationSlug: string;
+  location: string;
   description: string;
   overview: string;
   duration: string;
   durationDays: number;
   difficulty: Difficulty;
   groupSize: string;
+  elevation: string;
+  trekLocation: string;
+  departurePoint: string;
   price: number;
   rating: number;
   reviewCount: number;
@@ -31,301 +36,404 @@ export type Tour = {
   excluded: string[];
 };
 
+const defaultIncluded = [
+  "Private Transport",
+  "Toll/Taxes",
+  "Accommodation as per Itinerary",
+  "Tour Guide Cum Driver",
+  "Daily Breakfast",
+  "Bonfire",
+  "Basic First Aid",
+];
+
+const defaultExcluded = [
+  "Unforeseen Circumstances",
+  "Entry Tickets Etc",
+  "Insurance & Liability",
+  "Extras at hotels like hot/soft/mineral water",
+];
+
 export const tours: Tour[] = [
   {
     id: "1",
-    slug: "k2-base-camp-trek",
-    title: "K2 Base Camp Expedition",
-    destination: "Baltistan",
-    destinationSlug: "baltistan",
+    slug: "shyok-winter-festival",
+    title: "Shyok Winter Festival",
+    destination: "Khaplu Valley",
+    destinationSlug: "khaplu",
+    location: "Khaplu Valley, Gilgit-Baltistan, Pakistan",
     description:
-      "Walk in the shadow of the world's second-highest peak through the legendary Baltoro Glacier corridor.",
+      "Experience the magic of Shyok Festival—where culture, history, and natural beauty come alive in Khaplu every January.",
     overview:
-      "This iconic 14-day expedition takes you from Skardu through Askole to Concordia and K2 Base Camp — one of the most spectacular trekking routes on Earth. Expert guides, porter support, and carefully planned acclimatization ensure a safe, unforgettable journey.",
-    duration: "14 Days",
-    durationDays: 14,
-    difficulty: "Challenging",
-    groupSize: "4–12",
-    price: 2890,
-    rating: 4.95,
-    reviewCount: 87,
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+      "The Shyok Winter Festival in Khaplu, Gilgit-Baltistan, is an amazing festival of winter sports and local culture that takes place every January 7–9. Set against the stunning background of snow-capped mountains, the festival includes exhilarating games such as Tiaku Polo, Ice Hockey, rock climbing, and volleyball, as well as vivid Balti cultural performances. This 7–8-day family tour to Skardu is designed for comfort, fun, and unforgettable moments—from scenic mountain drives and historic forts to the peaceful beauty of Skardu and lively local bazaars.",
+    duration: "8 Days",
+    durationDays: 8,
+    difficulty: "Moderate",
+    groupSize: "8–12 Guests",
+    elevation: "3,400 m",
+    trekLocation: "Skardu Valley",
+    departurePoint: "Departure from Lahore / Islamabad",
+    price: 1500,
+    rating: 4.9,
+    reviewCount: 48,
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
     images: [
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
+      "https://images.unsplash.com/photo-1585408778703-1cf0f1cff791?w=1200&q=85",
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&q=85",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
     ],
-    category: "Trekking",
+    category: "Family",
     featured: true,
     itinerary: [
-      { day: 1, title: "Arrival in Islamabad", description: "Welcome briefing, gear check, and overnight in Islamabad." },
-      { day: 2, title: "Fly to Skardu", description: "Scenic flight to Skardu, explore the bazaar and rest." },
-      { day: 3, title: "Skardu to Askole", description: "Jeep ride through Shigar Valley to trek start point." },
-      { day: 4, title: "Trek to Jhola", description: "Begin Baltoro trek through Braldu Valley." },
-      { day: 5, title: "Paiju Campsite", description: "Acclimatization day with short hikes." },
-      { day: 6, title: "Urdukas", description: "Cross Baltoro Glacier moraine." },
-      { day: 7, title: "Goro II", description: "Enter the heart of the glacier." },
-      { day: 8, title: "Concordia", description: "Arrive at the Throne Room of the Mountain Gods." },
-      { day: 9, title: "K2 Base Camp", description: "Day hike to K2 Base Camp and return." },
-      { day: 10, title: "Return to Goro II", description: "Begin descent with panoramic views." },
-      { day: 11, title: "Descent to Paiju", description: "Retrace steps through glacier corridor." },
-      { day: 12, title: "Askole", description: "Final trekking day to road head." },
-      { day: 13, title: "Return to Skardu", description: "Jeep transfer and celebration dinner." },
-      { day: 14, title: "Departure", description: "Fly to Islamabad and onward journey." },
+      {
+        day: 1,
+        title: "Fly to Skardu",
+        description:
+          "Early morning flight from Islamabad to Skardu (around an hour). Arrive at Skardu and transfer to your hotel. Explore neighboring sites such as Katpana Desert and Skardu Bazaar. A traditional Balti supper. Stay at Skardu for the night.",
+      },
+      {
+        day: 2,
+        title: "Drive to Khaplu",
+        description:
+          "Scenic drive through the Shyok Valley to Khaplu, the historic capital of Ghanche District. Check in and explore the town before the festival begins.",
+      },
+      {
+        day: 3,
+        title: "Shyok Festival Day 1",
+        description:
+          "Full day at the Shyok Winter Festival—Tiaku Polo, ice hockey, rock climbing, volleyball, and vibrant Balti cultural performances.",
+      },
+      {
+        day: 4,
+        title: "Shyok Festival Day 2",
+        description:
+          "Second day of festival celebrations with local sports, music, dance, and community gatherings against snow-capped peaks.",
+      },
+      {
+        day: 5,
+        title: "Khaplu to Skardu",
+        description:
+          "Return drive to Skardu with stops at scenic viewpoints. Evening free to explore the bazaar or relax at the hotel.",
+      },
+      {
+        day: 6,
+        title: "Fly to Islamabad",
+        description:
+          "Morning flight from Skardu to Islamabad (weather permitting). Transfer to hotel and rest.",
+      },
+      {
+        day: 7,
+        title: "Fly to Home Country",
+        description: "International departure from Islamabad. End of tour.",
+      },
     ],
-    included: [
-      "Professional mountain guide",
-      "All camping equipment",
-      "Porter support",
-      "All meals on trek",
-      "Domestic flights",
-      "Permits and fees",
-      "Airport transfers",
-    ],
-    excluded: [
-      "International flights",
-      "Travel insurance",
-      "Personal trekking gear",
-      "Tips for staff",
-      "Personal expenses",
-    ],
+    included: defaultIncluded,
+    excluded: defaultExcluded,
   },
   {
     id: "2",
-    slug: "hunza-valley-cultural-tour",
-    title: "Hunza Valley Cultural Immersion",
-    destination: "Hunza",
+    slug: "hunza-winter-festival",
+    title: "Hunza Winter Festival",
+    destination: "Hunza Valley",
     destinationSlug: "hunza",
+    location: "Hunza Valley, Gilgit-Baltistan, Pakistan",
     description:
-      "Discover ancient forts, apricot orchards, and warm hospitality in Pakistan's most legendary valley.",
+      "A dazzling annual celebration of culture, winter sports, and warm hospitality in the snow-blanketed Hunza Valley.",
     overview:
-      "A refined 7-day journey through Hunza's cultural heartland — from Baltit and Altit Forts to Passu Cones, Attabad Lake, and Eagle's Nest viewpoints. Perfect for travelers seeking beauty, culture, and comfort.",
-    duration: "7 Days",
-    durationDays: 7,
-    difficulty: "Easy",
-    groupSize: "2–16",
-    price: 890,
-    rating: 4.92,
-    reviewCount: 156,
+      "The Hunza Winter Festival is a dazzling annual event held in the stunning Hunza Valley, Gilgit-Baltistan, Pakistan, celebrating the region's rich culture, winter sports, and warm hospitality. The festival takes place every year from December 28 to December 31, turning the snow-blanketed valley into a lively carnival of music, dance, and adventure. This thrilling seven-day festival on gorgeous Attabad Lake features ice hockey, skating, spectacular cultural performances, and traditional games.",
+    duration: "8–9 Days",
+    durationDays: 9,
+    difficulty: "Moderate",
+    groupSize: "8–12 Guests",
+    elevation: "2,438 m",
+    trekLocation: "Hunza Valley",
+    departurePoint: "Departure from Lahore / Islamabad",
+    price: 1800,
+    rating: 4.95,
+    reviewCount: 62,
     image: "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=1200&q=85",
     images: [
       "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=1200&q=85",
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+      "https://images.unsplash.com/photo-1486870591958-9d9d0d4734c9?w=1200&q=85",
     ],
     category: "Cultural",
     featured: true,
     itinerary: [
-      { day: 1, title: "Islamabad to Hunza", description: "Scenic drive via Babusar Pass or flight to Gilgit." },
-      { day: 2, title: "Karimabad Exploration", description: "Baltit Fort, local bazaar, and sunset at Eagle's Nest." },
-      { day: 3, title: "Altit Fort & Ganish", description: "UNESCO heritage villages and traditional architecture." },
-      { day: 4, title: "Attabad Lake & Passu", description: "Boat ride and Passu Glacier viewpoint." },
-      { day: 5, title: "Khunjerab Pass Day Trip", description: "Highest paved border crossing in the world." },
-      { day: 6, title: "Duikar & Local Life", description: "Sunrise photography and homestay experience." },
-      { day: 7, title: "Return Journey", description: "Depart with memories of a lifetime." },
+      {
+        day: 1,
+        title: "Islamabad",
+        description:
+          "Our guide(s) will receive you from the airport and transfer you to the hotel. Relax and recover from your journey. Optional night walk or shopping in Islamabad city.",
+      },
+      {
+        day: 2,
+        title: "Islamabad to Gilgit",
+        description:
+          "Travel north via the Karakoram Highway or fly to Gilgit (weather permitting). Scenic views of river valleys and mountain passes throughout.",
+      },
+      {
+        day: 3,
+        title: "Festival Opening and Ice Sports",
+        description:
+          "Arrive in Hunza and attend the festival opening ceremony. Ice sports and cultural performances on Attabad Lake.",
+      },
+      {
+        day: 4,
+        title: "Festival Day",
+        description:
+          "Full day of winter festival activities—music, dance, traditional games, and community celebrations.",
+      },
+      {
+        day: 5,
+        title: "Sightseeing in Hunza",
+        description:
+          "Explore Baltit Fort, Altit Fort, Karimabad bazaar, and Eagle's Nest viewpoint.",
+      },
+      {
+        day: 6,
+        title: "Festival and Gulmit Exploration",
+        description:
+          "Return to festival events and visit Gulmit village with views of Passu Cones.",
+      },
+      {
+        day: 7,
+        title: "Passu and Nagar Valley",
+        description:
+          "Day trip through Passu Glacier viewpoint, suspension bridges, and Nagar Valley landscapes.",
+      },
+      {
+        day: 8,
+        title: "Fly to Islamabad",
+        description: "Return flight or drive to Islamabad. Overnight in Islamabad.",
+      },
+      {
+        day: 9,
+        title: "Fly to Home Country",
+        description: "International departure from Islamabad. End of tour.",
+      },
     ],
-    included: ["Luxury transport", "Boutique hotels", "All meals", "Expert local guide", "Entrance fees"],
-    excluded: ["International flights", "Travel insurance", "Personal expenses", "Tips"],
+    included: defaultIncluded,
+    excluded: defaultExcluded,
   },
   {
     id: "3",
-    slug: "fairy-meadows-nanga-parbat",
-    title: "Fairy Meadows & Nanga Parbat",
-    destination: "Fairy Meadows",
-    destinationSlug: "fairy-meadows",
-    description:
-      "Camp beneath the Killer Mountain's north face — one of the most dramatic mountain views on the planet.",
-    overview:
-      "Trek to the legendary Fairy Meadows at 3,300m, with optional extension to Nanga Parbat Base Camp. Alpine meadows, pine forests, and the towering 8,126m peak create an unforgettable 5-day adventure.",
-    duration: "5 Days",
-    durationDays: 5,
-    difficulty: "Moderate",
-    groupSize: "4–10",
-    price: 650,
-    rating: 4.88,
-    reviewCount: 203,
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
-    images: [
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
-    ],
-    category: "Trekking",
-    featured: true,
-    itinerary: [
-      { day: 1, title: "Islamabad to Chilas", description: "Drive through Kaghan Valley." },
-      { day: 2, title: "Trek to Fairy Meadows", description: "Jeep to Raikot Bridge, then 3-hour trek." },
-      { day: 3, title: "Nanga Parbat Base Camp", description: "Day hike to Beyal Camp with glacier views." },
-      { day: 4, title: "Meadows Exploration", description: "Photography, rest, and local cuisine." },
-      { day: 5, title: "Return to Islamabad", description: "Descent and drive back." },
-    ],
-    included: ["Guide and porters", "Camping gear", "All meals", "Jeep transfers", "Permits"],
-    excluded: ["Travel insurance", "Personal gear", "Tips", "Accommodation in Islamabad"],
-  },
-  {
-    id: "4",
-    slug: "deosai-plains-safari",
-    title: "Deosai Plains Jeep Safari",
-    destination: "Deosai",
-    destinationSlug: "deosai",
-    description:
-      "Cross the Land of Giants — vast high-altitude plains teeming with wildlife and wildflowers.",
-    overview:
-      "A 4-day jeep safari through Deosai National Park, connecting Skardu and Astore. Spot Himalayan brown bears, golden marmots, and endless wildflower meadows at 4,114 meters.",
-    duration: "4 Days",
-    durationDays: 4,
-    difficulty: "Easy",
-    groupSize: "2–8",
-    price: 720,
-    rating: 4.85,
-    reviewCount: 94,
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=85",
-    images: [
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=85",
-    ],
-    category: "Jeep Safari",
-    featured: true,
-    itinerary: [
-      { day: 1, title: "Skardu to Deosai", description: "Enter the national park via Sadpara Lake." },
-      { day: 2, title: "Sheosar Lake", description: "Crystal-clear alpine lake at 4,142m." },
-      { day: 3, title: "Wildlife & Photography", description: "Bear watching and meadow exploration." },
-      { day: 4, title: "Return via Astore", description: "Descent through Rama Meadows to Gilgit." },
-    ],
-    included: ["4x4 jeep with driver", "Camping equipment", "Park fees", "Meals", "Guide"],
-    excluded: ["Personal expenses", "Travel insurance", "Tips"],
-  },
-  {
-    id: "5",
-    slug: "skardu-lakes-expedition",
-    title: "Skardu Lakes Expedition",
+    slug: "mayfung-fire-festival",
+    title: "Mayfung Fire Festival",
     destination: "Skardu",
     destinationSlug: "skardu",
+    location: "Gilgit-Baltistan, Pakistan",
     description:
-      "Explore Kachura Lakes, Shangrila, and the gateway to the Karakoram in a premium 6-day circuit.",
+      "Celebrate the Balti winter solstice with bonfires, traditional music, dancing, and local sports in Skardu.",
     overview:
-      "Skardu is the adventure capital of Pakistan. This curated expedition covers Upper and Lower Kachura, Shigar Fort, Cold Desert, and Manthal Buddha rock — with boutique lodging and private transport throughout.",
-    duration: "6 Days",
-    durationDays: 6,
-    difficulty: "Easy",
-    groupSize: "2–12",
-    price: 780,
-    rating: 4.9,
-    reviewCount: 128,
+      "The Mayfung Fire Festival in Skardu is a lively celebration of the winter solstice that includes bonfires, traditional music, dancing, and local sports. This centuries-old Balti celebration, held on December 21st, welcomes winter with warmth, community, and prayers for success, providing guests with an immersive cultural experience set against Skardu's breathtaking mountain background.",
+    duration: "7–8 Days",
+    durationDays: 8,
+    difficulty: "Moderate",
+    groupSize: "8–12 Guests",
+    elevation: "2,438 m",
+    trekLocation: "Skardu Valley",
+    departurePoint: "Departure from Lahore / Islamabad",
+    price: 1500,
+    rating: 4.88,
+    reviewCount: 36,
     image: "https://images.unsplash.com/photo-1585408778703-1cf0f1cff791?w=1200&q=85",
     images: [
       "https://images.unsplash.com/photo-1585408778703-1cf0f1cff791?w=1200&q=85",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
     ],
-    category: "Photography",
-    featured: false,
+    category: "Family",
+    featured: true,
     itinerary: [
-      { day: 1, title: "Arrive Skardu", description: "Airport pickup and Shangrila Resort." },
-      { day: 2, title: "Kachura Lakes", description: "Upper and Lower Kachura boat rides." },
-      { day: 3, title: "Shigar Valley", description: "Shigar Fort and Amburiq Mosque." },
-      { day: 4, title: "Cold Desert", description: "Sand dunes beneath mountain peaks." },
-      { day: 5, title: "Khaplu Day Trip", description: "Khaplu Fort and Ghanche Valley." },
-      { day: 6, title: "Departure", description: "Fly or drive out." },
+      {
+        day: 1,
+        title: "Journey to Gilgit",
+        description:
+          "Depart Islamabad early morning (~5:00 am) along the Karakoram Highway through Abbottabad, Mansehra, and Besham. Travel follows the Indus River through gorges and rugged terrain (~10–12 hours). Evening arrival in Chilas. Or fly to Skardu if weather permits.",
+      },
+      {
+        day: 2,
+        title: "Drive to Skardu",
+        description:
+          "Continue to Skardu through stunning mountain scenery. Check in and prepare for the Mayfung celebrations.",
+      },
+      {
+        day: 3,
+        title: "Mayfung Festival Celebrations",
+        description:
+          "Experience the fire festival—bonfires, traditional Balti music, dancing, local sports, and community prayers welcoming the winter solstice.",
+      },
+      {
+        day: 4,
+        title: "Explore Skardu and Surroundings",
+        description:
+          "Visit Kachura Lakes, Shangrila, Cold Desert, or Skardu bazaar. Optional short hikes and photography.",
+      },
+      {
+        day: 5,
+        title: "Drive / Fly to Chilas",
+        description:
+          "Begin return journey to Chilas with scenic stops along the way.",
+      },
+      {
+        day: 6,
+        title: "Drive to Islamabad",
+        description: "Full-day drive back to Islamabad via the KKH.",
+      },
+      {
+        day: 7,
+        title: "Fly to Home Country",
+        description: "International departure from Islamabad. End of tour.",
+      },
     ],
-    included: ["Boutique hotels", "Private transport", "All meals", "Guide", "Boat rides"],
-    excluded: ["Flights to Skardu", "Insurance", "Tips"],
+    included: defaultIncluded,
+    excluded: defaultExcluded,
   },
   {
-    id: "6",
-    slug: "passu-adventure-trek",
-    title: "Passu Adventure Trek",
-    destination: "Passu",
-    destinationSlug: "passu",
+    id: "4",
+    slug: "shimshal-kuch-festival",
+    title: "Shimshal Kuch Festival",
+    destination: "Shimshal Valley",
+    destinationSlug: "hunza",
+    location: "Hunza Valley, Gilgit-Baltistan, Pakistan",
     description:
-      "Trek to Passu Glacier, cross suspension bridges, and witness the Cathedral Spires up close.",
+      "Celebrate Wakhi mountain culture with yak polo, traditional music, and high-altitude trekking in Pakistan's most remote valley.",
     overview:
-      "A 5-day moderate trek in the heart of the Karakoram Highway corridor. Passu Cones, Batura Glacier, and the famous Hussaini Bridge make this a photographer's paradise.",
-    duration: "5 Days",
-    durationDays: 5,
+      "Shimshal Valley, located in the Karakoram Mountains of Gilgit-Baltistan, is one of Pakistan's most remote and breathtaking regions, home to the Wakhi people. The Shimshal Kuch Festival, held annually in July or August, celebrates mountain life, yak herding, and Wakhi traditions with yak & horse polo, traditional music and dance, trekking, and local cuisine including Shir Chai and Chapshuro.",
+    duration: "7–8 Days",
+    durationDays: 8,
     difficulty: "Moderate",
-    groupSize: "4–10",
-    price: 590,
-    rating: 4.87,
-    reviewCount: 76,
-    image: "https://images.unsplash.com/photo-1486870591958-9d9d0d4734c9?w=1200&q=85",
+    groupSize: "8–12 Guests",
+    elevation: "3,200 m",
+    trekLocation: "Hunza Valley",
+    departurePoint: "Departure from Lahore / Islamabad",
+    price: 1800,
+    rating: 4.92,
+    reviewCount: 29,
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
     images: [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+      "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=85",
       "https://images.unsplash.com/photo-1486870591958-9d9d0d4734c9?w=1200&q=85",
     ],
-    category: "Trekking",
-    featured: false,
+    category: "Cultural",
+    featured: true,
     itinerary: [
-      { day: 1, title: "Gilgit to Passu", description: "Drive along the KKH." },
-      { day: 2, title: "Passu Glacier Trek", description: "Full-day glacier exploration." },
-      { day: 3, title: "Borith Lake", description: "Alpine lake and bird watching." },
-      { day: 4, title: "Suspension Bridges", description: "Hussaini and Passu bridge walks." },
-      { day: 5, title: "Return", description: "Drive back to Gilgit or Hunza." },
+      {
+        day: 1,
+        title: "Receive Guest from Airport",
+        description:
+          "Our guide(s) will receive you from the airport and transfer you to the hotel. Relax and recover from your journey. Optional night walk or shopping in Islamabad.",
+      },
+      {
+        day: 2,
+        title: "Islamabad → Gilgit (Flight - 1 hr)",
+        description: "Morning flight to Gilgit. Transfer to hotel and acclimatize.",
+      },
+      {
+        day: 3,
+        title: "Gilgit to Hunza",
+        description:
+          "Scenic drive to Hunza Valley. Explore Karimabad and prepare for Shimshal journey.",
+      },
+      {
+        day: 4,
+        title: "Shimshal Kuch Festival (Full Day)",
+        description:
+          "Full day at the festival—yak & horse polo, Wakhi music and dance, local food, and cultural ceremonies.",
+      },
+      {
+        day: 5,
+        title: "Shimshal → Gilgit (Drive - 6 hrs)",
+        description: "Return drive from Shimshal to Gilgit through mountain roads.",
+      },
+      {
+        day: 6,
+        title: "Gilgit → Islamabad (Flight or Drive)",
+        description: "Fly or drive back to Islamabad (12–14 hrs by road).",
+      },
+      {
+        day: 7,
+        title: "Fly to Home Country",
+        description: "International departure from Islamabad. End of tour.",
+      },
     ],
-    included: ["Guide", "Camping", "Meals", "Transport", "Permits"],
-    excluded: ["Insurance", "Personal gear", "Tips"],
+    included: defaultIncluded,
+    excluded: defaultExcluded,
   },
   {
-    id: "7",
-    slug: "shigar-khaplu-heritage",
-    title: "Shigar & Khaplu Heritage Tour",
-    destination: "Shigar Valley",
-    destinationSlug: "shigar-valley",
+    id: "5",
+    slug: "chilam-joshi-festival",
+    title: "Chilam Joshi Festival",
+    destination: "Kalash Valley",
+    destinationSlug: "kalash",
+    location: "Kalash Valley, KPK, Pakistan",
     description:
-      "Walk through centuries of Balti heritage — restored forts, mosques, and apricot-laden valleys.",
+      "Witness the vibrant spring festival of the Kalash people—the Last Pagans of the Hindu Kush—in remote Chitral.",
     overview:
-      "A refined cultural journey through Baltistan's twin gems: Shigar Fort (now a Serena heritage hotel) and Khaplu Palace. Includes traditional music evenings and local cuisine masterclasses.",
-    duration: "4 Days",
-    durationDays: 4,
-    difficulty: "Easy",
-    groupSize: "2–8",
-    price: 540,
-    rating: 4.91,
-    reviewCount: 62,
-    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
+      "The Kalash Valley, located in the remote mountains of Chitral District, is home to the Kalash people, one of the world's most unique indigenous communities. The Chilam Joshi Festival, held every year in mid-May, marks the arrival of spring—a time for renewal, fertility, and matchmaking. Experience traditional attire, drum-and-flute dances, sacrificial offerings, and the unique customs of this living anthropological treasure.",
+    duration: "6–7 Days",
+    durationDays: 7,
+    difficulty: "Moderate",
+    groupSize: "8–12 Guests",
+    elevation: "3,100 m",
+    trekLocation: "Chitral Valley",
+    departurePoint: "Departure from Lahore / Islamabad",
+    price: 1500,
+    rating: 4.94,
+    reviewCount: 41,
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=85",
     images: [
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=85",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
+      "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=1200&q=85",
     ],
     category: "Cultural",
-    featured: false,
+    featured: true,
     itinerary: [
-      { day: 1, title: "Skardu to Shigar", description: "Shigar Fort check-in and village walk." },
-      { day: 2, title: "Shigar Exploration", description: "Amburiq Mosque and local workshops." },
-      { day: 3, title: "Khaplu Palace", description: "Ghanche Valley and palace tour." },
-      { day: 4, title: "Return to Skardu", description: "Leisure morning and departure." },
+      {
+        day: 1,
+        title: "Receive Guest from Airport",
+        description:
+          "Our guide(s) will receive you from the airport and transfer you to the hotel. Relax and recover from your journey.",
+      },
+      {
+        day: 2,
+        title: "Islamabad to Chitral",
+        description:
+          "Travel to Chitral via Lowari Tunnel or flight (weather permitting). Scenic journey through KPK mountains.",
+      },
+      {
+        day: 3,
+        title: "Chitral to Bumburet",
+        description:
+          "Drive to Bumburet, the largest of the three Kalash valleys. Check in and explore the village.",
+      },
+      {
+        day: 4,
+        title: "Chilam Joshi Festival (Full Day in Bumburet)",
+        description:
+          "Full day of festival celebrations—traditional dances, music, wine sharing, matchmaking rituals, and colorful Kalash attire.",
+      },
+      {
+        day: 5,
+        title: "Bumburet → Rumbur → Chitral",
+        description:
+          "Visit Rumbur valley and return to Chitral town for overnight stay.",
+      },
+      {
+        day: 6,
+        title: "Chitral to Islamabad",
+        description: "Return journey to Islamabad by road or flight.",
+      },
+      {
+        day: 7,
+        title: "Fly to Home Country",
+        description: "International departure from Islamabad. End of tour.",
+      },
     ],
-    included: ["Heritage hotel stays", "All meals", "Cultural guide", "Transport"],
-    excluded: ["Flights", "Insurance", "Tips"],
-  },
-  {
-    id: "8",
-    slug: "nanga-parbat-base-camp",
-    title: "Nanga Parbat Base Camp Trek",
-    destination: "Nanga Parbat",
-    destinationSlug: "nanga-parbat",
-    description:
-      "The ultimate close encounter with the ninth-highest peak — Rupal Face views that defy description.",
-    overview:
-      "An 8-day challenging trek to the Rupal Base Camp of Nanga Parbat, offering views of the highest mountain face on Earth. For experienced trekkers seeking raw Himalayan grandeur.",
-    duration: "8 Days",
-    durationDays: 8,
-    difficulty: "Expert",
-    groupSize: "4–8",
-    price: 1450,
-    rating: 4.93,
-    reviewCount: 41,
-    image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&q=85",
-    images: [
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&q=85",
-    ],
-    category: "Mountaineering",
-    featured: false,
-    itinerary: [
-      { day: 1, title: "Islamabad to Tarashing", description: "Drive to Astore Valley trailhead." },
-      { day: 2, title: "Trek to Herligkoffer Base Camp", description: "Enter Rupal Valley." },
-      { day: 3, title: "Acclimatization", description: "Short hikes and rest." },
-      { day: 4, title: "Latbo Meadow", description: "High camp with Rupal Face views." },
-      { day: 5, title: "Base Camp", description: "Reach Nanga Parbat Base Camp." },
-      { day: 6, title: "Exploration Day", description: "Photography and glacier walks." },
-      { day: 7, title: "Descent", description: "Return to Tarashing." },
-      { day: 8, title: "Return", description: "Drive to Islamabad." },
-    ],
-    included: ["Expert guide", "Full camping kit", "Porters", "All meals", "Permits"],
-    excluded: ["Insurance", "Personal gear", "Tips", "Emergency evacuation insurance"],
+    included: defaultIncluded,
+    excluded: defaultExcluded,
   },
 ];
 
@@ -341,16 +449,25 @@ export function getToursByDestination(destinationSlug: string): Tour[] {
   return tours.filter((t) => t.destinationSlug === destinationSlug);
 }
 
+export function getToursByCategory(category: TourCategory): Tour[] {
+  return tours.filter((t) => t.category === category);
+}
+
+export const tourCategories: TourCategory[] = [
+  "Family",
+  "Cultural",
+  "Trekking",
+  "Mountaineering",
+  "Jeep Safari",
+  "Photography",
+  "Camping",
+];
+
 export const destinations = [
   "skardu",
   "hunza",
-  "fairy-meadows",
-  "deosai",
-  "baltistan",
-  "passu",
-  "shigar-valley",
   "khaplu",
-  "nanga-parbat",
+  "kalash",
 ] as const;
 
 export const difficulties: Difficulty[] = ["Easy", "Moderate", "Challenging", "Expert"];
