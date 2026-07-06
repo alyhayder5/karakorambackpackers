@@ -12,7 +12,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <main className="pt-24">
+      <main className="pt-[120px]">
         <section className="relative overflow-hidden pb-16 pt-8">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
           <div className="container-premium relative">

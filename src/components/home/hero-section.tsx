@@ -13,8 +13,8 @@ export function HeroSection() {
       <HeroVideo />
       <div className="hero-overlay absolute inset-0" aria-hidden />
 
-      <div className="relative z-10 w-full pb-10 pt-28 sm:pb-16 sm:pt-32 md:pb-20">
-        <div className="container-premium">
+      <div className="relative z-10 w-full pb-10 sm:pb-16 sm:pt-32 md:pb-20">
+        <div className="container-premium pt-[30px]">
           <ScrollReveal>
             <p className="mb-4 section-eyebrow">
               Gilgit-Baltistan · Pakistan

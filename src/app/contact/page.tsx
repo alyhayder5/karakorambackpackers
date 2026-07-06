@@ -36,7 +36,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <main className="pt-24">
+      <main className="pt-[120px]">
         <section className="pb-12 pt-8">
           <div className="container-premium">
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
