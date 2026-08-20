@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import { Footer } from "@/components/layout/footer";
 import { ToursListing } from "@/components/tours/tours-listing";
-import { tours } from "@/lib/data/tours";
+import { getTours } from "@/lib/cms/store";
 import { siteName } from "@/lib/site";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Tours & Treks",
@@ -10,6 +12,7 @@ export const metadata = {
 };
 
 export default function ToursPage() {
+  const tours = getTours();
   return (
     <>
       <main className="pt-[120px]">

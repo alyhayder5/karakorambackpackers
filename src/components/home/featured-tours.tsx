@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { getFeaturedTours } from "@/lib/data/tours";
+import { getFeaturedTours } from "@/lib/cms/store";
 import { formatPrice } from "@/lib/utils";
 
 export function FeaturedTours() {

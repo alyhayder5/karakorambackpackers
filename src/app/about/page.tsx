@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { companyStats, teamMembers } from "@/lib/data/blog";
+import { getAbout, getTeam } from "@/lib/cms/store";
+import { companyStats } from "@/lib/data/blog";
 import { siteName } from "@/lib/site";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "About Us",
@@ -10,6 +13,9 @@ export const metadata = {
 };
 
 export default function AboutPage() {
+  const about = getAbout();
+  const team = getTeam();
+
   return (
     <>
       <main className="pt-[120px]">
@@ -20,7 +26,7 @@ export default function AboutPage() {
               Our Story
             </p>
             <h1 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-              Born in the Mountains, Built for Adventure
+              {about.headline}
             </h1>
           </div>
         </section>
@@ -31,8 +37,8 @@ export default function AboutPage() {
               <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
                   <Image
-                    src="/destinations/kutwal-valley.jpg"
-                    alt="Kutwal Valley and Haramosh Peak"
+                    src={about.image}
+                    alt={about.imageAlt}
                     fill
                     className="object-cover"
                     sizes="50vw"
@@ -40,20 +46,14 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold">Company Story</h2>
-                  <p className="mt-4 leading-relaxed text-muted">
-                    Karakoram Backpackers was founded in Gilgit-Baltistan by Ali
-                    Shan (Founder & Trip Manager) and Zahid Hussain (Co-Founder
-                    & Tour Operator). Based in Danyore, we specialize in
-                    customized tours across northern Pakistan and focus on
-                    sustainable tourism — authentic experiences in the
-                    Karakoram, Hindukush, and Himalayas.
-                  </p>
-                  <p className="mt-4 leading-relaxed text-muted">
-                    Today we lead family tours, festival journeys, and treks
-                    across Fairy Meadows, Hunza, Skardu, Khaplu, Shimshal, Darel,
-                    and Kalash — always with local expertise, sustainable
-                    practices, and an unwavering commitment to safety.
-                  </p>
+                  {about.story.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 40)}
+                      className="mt-4 leading-relaxed text-muted"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
               </div>
             </ScrollReveal>
@@ -62,20 +62,11 @@ export default function AboutPage() {
               <div className="grid gap-8 sm:grid-cols-2">
                 <div className="rounded-3xl border border-border bg-surface p-8">
                   <h3 className="text-xl font-bold">Our Mission</h3>
-                  <p className="mt-4 text-muted">
-                    To share the unparalleled beauty of Gilgit-Baltistan with
-                    travelers worldwide through safe, sustainable, and deeply
-                    authentic adventure experiences led by local experts.
-                  </p>
+                  <p className="mt-4 text-muted">{about.mission}</p>
                 </div>
                 <div className="rounded-3xl border border-border bg-surface p-8">
                   <h3 className="text-xl font-bold">Our Vision</h3>
-                  <p className="mt-4 text-muted">
-                    To establish Pakistan&apos;s northern areas as a premier
-                    global adventure destination — where world-class expeditions
-                    meet warm Balti hospitality and leave positive impact on
-                    local communities.
-                  </p>
+                  <p className="mt-4 text-muted">{about.vision}</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -98,9 +89,9 @@ export default function AboutPage() {
               <div>
                 <h2 className="mb-8 text-2xl font-bold">Meet Our Team</h2>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-                  {teamMembers.map((member) => (
+                  {team.map((member) => (
                     <div
-                      key={member.name}
+                      key={member.id}
                       className="overflow-hidden rounded-3xl border border-border bg-surface card-lift"
                     >
                       <div className="relative aspect-square">

@@ -11,8 +11,9 @@ import { OurComfort } from "@/components/home/our-comfort";
 import { PricingPlans } from "@/components/home/pricing-plans";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { WhyChooseUs } from "@/components/home/why-choose-us";
+import type { GalleryItem } from "@/lib/cms/types";
 
-export function HomeView() {
+export function HomeView({ gallery }: { gallery: GalleryItem[] }) {
   return (
     <>
       <main>
@@ -26,7 +27,7 @@ export function HomeView() {
         <DestinationsBento />
         <AdventureCategories />
         <TestimonialsSection />
-        <ExperienceGallery />
+        <ExperienceGallery images={gallery} />
         <FinalCTA />
       </main>
       <Footer />

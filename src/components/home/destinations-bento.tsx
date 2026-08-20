@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { getFeaturedDestinations } from "@/lib/data/destinations";
+import { getFeaturedDestinations } from "@/lib/cms/store";
 import { Button } from "../ui/button";
 
 export function DestinationsBento() {

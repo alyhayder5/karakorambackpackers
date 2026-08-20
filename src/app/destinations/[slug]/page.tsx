@@ -5,14 +5,20 @@ import { Calendar, MapPin } from "lucide-react";
 import { Footer } from "@/components/layout/footer";
 import { TourCard } from "@/components/tours/tours-listing";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { destinations, getDestinationBySlug } from "@/lib/data/destinations";
-import { getToursByDestination } from "@/lib/data/tours";
+import {
+  getDestinationBySlug,
+  getDestinations,
+  getToursByDestination,
+} from "@/lib/cms/store";
 import { siteName } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  return destinations.map((d) => ({ slug: d.slug }));
+  return getDestinations().map((d) => ({ slug: d.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -82,11 +88,12 @@ export default async function DestinationDetailPage({ params }: Props) {
               </div>
             </ScrollReveal>
 
+            {(dest.attractions ?? []).length > 0 && (
             <ScrollReveal>
               <div>
                 <h2 className="text-2xl font-bold">Top Attractions</h2>
                 <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {dest.attractions.map((attr) => (
+                  {(dest.attractions ?? []).map((attr) => (
                     <div
                       key={attr.name}
                       className="rounded-2xl border border-border bg-surface p-6 card-lift"
@@ -98,6 +105,7 @@ export default async function DestinationDetailPage({ params }: Props) {
                 </div>
               </div>
             </ScrollReveal>
+            )}
 
             {dest.images.length > 1 && (
               <ScrollReveal>
