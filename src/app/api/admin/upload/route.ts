@@ -3,6 +3,8 @@ import path from "path";
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/cms/auth";
 
+const MAX_BYTES = 4 * 1024 * 1024;
+
 const ALLOWED = new Set([
   "image/jpeg",
   "image/png",
@@ -36,8 +38,11 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
-  if (file.size > 10 * 1024 * 1024) {
-    return NextResponse.json({ error: "File must be under 10MB" }, { status: 400 });
+  if (file.size > MAX_BYTES) {
+    return NextResponse.json(
+      { error: "File must be under 4MB after compression" },
+      { status: 400 },
+    );
   }
 
   const ext = path.extname(file.name) || ".jpg";
