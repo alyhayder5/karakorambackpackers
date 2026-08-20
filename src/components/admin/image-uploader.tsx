@@ -4,6 +4,10 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { ImagePlus, X } from "lucide-react";
 import { toast } from "sonner";
+import {
+  compressImageForUpload,
+  readUploadError,
+} from "@/lib/cms/compress-image";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -35,16 +39,26 @@ export function ImageUploader({
     try {
       const uploaded: string[] = [];
       for (const file of Array.from(files)) {
+        const compressed = await compressImageForUpload(file);
         const form = new FormData();
-        form.set("file", file);
+        form.set("file", compressed);
         form.set("folder", folder);
         const res = await fetch("/api/admin/upload", {
           method: "POST",
           body: form,
         });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Upload failed");
-        uploaded.push(data.url as string);
+        const text = await res.text();
+        if (!res.ok) {
+          throw new Error(readUploadError(res.status, text));
+        }
+        let data: { url?: string };
+        try {
+          data = JSON.parse(text) as { url?: string };
+        } catch {
+          throw new Error("Upload failed");
+        }
+        if (!data.url) throw new Error("Upload failed");
+        uploaded.push(data.url);
       }
       if (multiple && onChangeMany) {
         onChangeMany([...list, ...uploaded]);
