@@ -16,7 +16,8 @@ export function OrganizationJsonLd() {
     description: siteDescription,
     email: siteSupportEmail,
     telephone: sitePhoneHref,
-    image: `${url}/og-image.png`,
+    image: `${url}/karakoram-backpackers-logo.png`,
+    logo: `${url}/karakoram-backpackers-logo.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Kkh, Near Chinese Graveyard, Danyore",

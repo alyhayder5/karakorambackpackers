@@ -15,7 +15,7 @@ export function FounderStaff() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl img-zoom">
               <Image
                 src={founderStaffContent.image}
-                alt="Karakoram Backpackers team in the mountains"
+                alt="Ali Shan, founder of Karakoram Backpackers"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

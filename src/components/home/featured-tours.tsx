@@ -46,7 +46,9 @@ export function FeaturedTours() {
                   </Badge>
                   <div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-black/50 px-2.5 py-1 text-xs font-medium backdrop-blur-sm">
                     <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                    {tour.rating} ({tour.reviewCount})
+                    {tour.reviewCount > 0
+                      ? `${tour.rating} (${tour.reviewCount})`
+                      : `${tour.rating}`}
                   </div>
                 </div>
 
@@ -80,7 +82,7 @@ export function FeaturedTours() {
                     <div>
                       <p className="text-xs text-muted">From</p>
                       <p className="text-2xl font-bold text-primary">
-                        {formatPrice(tour.price)}
+                        {formatPrice(tour.price, tour.currency)}
                       </p>
                     </div>
                     <Link href={`/tours/${tour.slug}`}>

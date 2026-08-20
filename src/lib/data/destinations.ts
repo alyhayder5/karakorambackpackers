@@ -23,10 +23,10 @@ export const destinations: Destination[] = [
     description: "The adventure capital where turquoise lakes meet desert dunes beneath 8,000m peaks.",
     overview:
       "Skardu serves as the launching point for expeditions to K2, Broad Peak, and the Gasherbrum massif. Beyond mountaineering, the region offers Kachura Lakes, Shangrila Resort, Cold Desert, and some of the most dramatic landscapes in Asia.",
-    image: "https://images.unsplash.com/photo-1585408778703-1cf0f1cff791?w=1200&q=85",
+    image: "/destinations/skardu-blind-lake.jpg",
     images: [
-      "https://images.unsplash.com/photo-1585408778703-1cf0f1cff791?w=1200&q=85",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+      "/destinations/skardu-blind-lake.jpg",
+      "/gallery/22.jpeg",
     ],
     elevation: "2,228m",
     bestTime: "April – October",
@@ -51,9 +51,10 @@ export const destinations: Destination[] = [
     description: "Ancient forts, terraced orchards, and the most hospitable people in the Karakoram.",
     overview:
       "Hunza Valley has captivated travelers for centuries. From the UNESCO-listed Baltit and Altit Forts to Attabad Lake's turquoise waters and the legendary Passu Cones, every turn reveals another masterpiece of nature and culture.",
-    image: "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=1200&q=85",
+    image: "/tours/hunza-valley.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=1200&q=85",
+      "/tours/hunza-valley.jpeg",
+      "/destinations/passu-cones.jpg",
     ],
     elevation: "2,438m",
     bestTime: "March – November",
@@ -78,9 +79,10 @@ export const destinations: Destination[] = [
     description: "Alpine meadows with the most dramatic Nanga Parbat views on Earth.",
     overview:
       "Accessible via a thrilling jeep ride and moderate trek, Fairy Meadows offers camping beneath the 8,126m north face of Nanga Parbat. A must for photographers and nature lovers seeking raw Himalayan beauty.",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
+    image: "/tours/fairy-meadows.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
+      "/tours/fairy-meadows.jpeg",
+      "/tours/fairy-meadows-2.jpeg",
     ],
     elevation: "3,300m",
     bestTime: "May – September",
@@ -104,9 +106,10 @@ export const destinations: Destination[] = [
     description: "Vast high-altitude plains where brown bears roam among wildflowers.",
     overview:
       "Deosai National Park sits at an average elevation of 4,114 meters — the second-highest plateau in the world. Open only in summer, its endless meadows, Sheosar Lake, and wildlife make it a jeep safari paradise.",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=85",
+    image: "/gallery/01.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=85",
+      "/gallery/01.jpeg",
+      "/gallery/06.jpeg",
     ],
     elevation: "4,114m",
     bestTime: "June – September",
@@ -130,9 +133,10 @@ export const destinations: Destination[] = [
     description: "Dramatic spires, glaciers, and the world's most scenic highway corridor.",
     overview:
       "Passu village sits beneath the iconic Passu Cones (Cathedral Spires) along the Karakoram Highway. Batura Glacier, Borith Lake, and the famous Hussaini suspension bridge await adventurous travelers.",
-    image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=85",
+    image: "/destinations/passu-cones.jpg",
     images: [
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=85",
+      "/destinations/passu-cones.jpg",
+      "/tours/hunza-extra.jpeg",
     ],
     elevation: "2,500m",
     bestTime: "April – October",
@@ -156,9 +160,10 @@ export const destinations: Destination[] = [
     description: "A living museum of Balti culture in the serene Ghanche Valley.",
     overview:
       "Khaplu Palace, restored by the Aga Khan Trust, anchors this peaceful valley. Traditional music, apricot drying, and views of Masherbrum make Khaplu a hidden gem of Baltistan.",
-    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
+    image: "/tours/shyok-winter-festival.jpg",
     images: [
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
+      "/tours/shyok-winter-festival.jpg",
+      "/destinations/skardu-blind-lake.jpg",
     ],
     elevation: "2,600m",
     bestTime: "April – October",
@@ -182,9 +187,10 @@ export const destinations: Destination[] = [
     description: "Home to K2, Broad Peak, and the greatest concentration of 8,000m peaks.",
     overview:
       "Baltistan is the mountaineering heart of Pakistan. The Baltoro Glacier, Concordia, and K2 Base Camp trek represent the pinnacle of Himalayan adventure.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+    image: "/destinations/haramosh-peak.jpg",
     images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+      "/destinations/haramosh-peak.jpg",
+      "/gallery/07.jpeg",
     ],
     elevation: "Up to 8,611m",
     bestTime: "June – September",
@@ -207,8 +213,8 @@ export const destinations: Destination[] = [
     description: "Where the Indus meets ancient Balti civilization.",
     overview:
       "Shigar Valley leads to the trailheads of K2 and hosts the magnificent Shigar Fort. Apricot orchards, traditional stone architecture, and warm Balti hospitality define this valley.",
-    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=85",
-    images: [],
+    image: "/gallery/22.jpeg",
+    images: ["/gallery/22.jpeg"],
     elevation: "2,200m",
     bestTime: "April – October",
     highlights: ["Shigar Fort", "Amburiq Mosque", "Apricot Orchards"],
@@ -229,8 +235,8 @@ export const destinations: Destination[] = [
     description: "The ninth-highest peak with the greatest vertical relief on Earth.",
     overview:
       "Nanga Parbat's Rupal Face rises 4,600m from valley to summit — the highest mountain face in the world. Treks to Fairy Meadows and Rupal Base Camp offer unparalleled views.",
-    image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&q=85",
-    images: [],
+    image: "/tours/fairy-meadows-2.jpeg",
+    images: ["/tours/fairy-meadows-2.jpeg", "/tours/fairy-meadows.jpeg"],
     elevation: "8,126m",
     bestTime: "May – September",
     highlights: ["Rupal Face", "Fairy Meadows", "Base Camp"],
@@ -241,6 +247,102 @@ export const destinations: Destination[] = [
       { label: "Summit", value: "8,126m" },
       { label: "Tours", value: "5+" },
       { label: "Rating", value: "4.93★" },
+    ],
+    featured: false,
+  },
+  {
+    slug: "naltar",
+    name: "Naltar Valley",
+    tagline: "Lakes of the Karakoram",
+    description: "Pine forests, ski slopes, and turquoise alpine lakes a short drive from Gilgit.",
+    overview:
+      "Naltar Valley is one of the treks our team leads most often — forested slopes, rainbow-colored lakes, and a quieter alternative to Hunza's busier viewpoints. Featured on the Karakoram Backpackers homepage alongside Kutwal and Passu.",
+    image: "/destinations/naltar-valley.jpg",
+    images: ["/destinations/naltar-valley.jpg"],
+    elevation: "3,000m",
+    bestTime: "May – October",
+    highlights: ["Naltar Lakes", "Pine forests", "Ski slopes"],
+    attractions: [
+      { name: "Naltar Lakes", description: "A chain of high alpine lakes reached by jeep and short walks." },
+    ],
+    stats: [
+      { label: "Elevation", value: "3,000m" },
+      { label: "Tours", value: "Guided" },
+      { label: "From Gilgit", value: "2–3 hrs" },
+    ],
+    featured: true,
+    bentoSize: "small",
+  },
+  {
+    slug: "kutwal",
+    name: "Kutwal Valley",
+    tagline: "Haramosh Gateway",
+    description: "A remote pasture beneath Haramosh Peak — one of the signature treks of our Gilgit team.",
+    overview:
+      "Kutwal (Kutwal Lake / Haramosh) is a high pasture trek from the Gilgit side, with views of Haramosh Peak. It is highlighted on our homepage as one of the treks led by the Karakoram Backpackers team.",
+    image: "/destinations/kutwal-valley.jpg",
+    images: [
+      "/destinations/kutwal-valley.jpg",
+      "/destinations/kutwal-trek.jpg",
+      "/destinations/haramosh-peak.jpg",
+    ],
+    elevation: "3,200m",
+    bestTime: "June September",
+    highlights: ["Haramosh Peak", "Kutwal Lake", "High pastures"],
+    attractions: [
+      { name: "Haramosh Peak", description: "A 7,409m giant of the Rakaposhi-Haramosh range." },
+      { name: "Kutwal Trek", description: "Pasture and lake trek operated by our Gilgit team." },
+    ],
+    stats: [
+      { label: "Elevation", value: "3,200m" },
+      { label: "Peak", value: "7,409m" },
+      { label: "Region", value: "Gilgit" },
+    ],
+    featured: true,
+    bentoSize: "small",
+  },
+  {
+    slug: "darel",
+    name: "Darel Valley",
+    tagline: "Polo & Heritage",
+    description: "Home of the Sut Das Darel Festival — polo, horse racing, and Diamer traditions.",
+    overview:
+      "Darel Valley in Diamer District hosts the Sut Das Darel Festival, an annual gathering of polo, football, Bazm Adab, and mountain hospitality. We run an 8–10 day cultural tour here each season.",
+    image: "/gallery/03.jpeg",
+    images: ["/gallery/03.jpeg"],
+    elevation: "2,000m+",
+    bestTime: "Festival season (varies)",
+    highlights: ["Sut Das Festival", "Polo", "Diamer culture"],
+    attractions: [
+      { name: "Sut Das Darel Festival", description: "Polo, horse racing, football, crafts, and Bazm Adab." },
+    ],
+    stats: [
+      { label: "District", value: "Diamer" },
+      { label: "Tours", value: "1+" },
+      { label: "From Gilgit", value: "4–5 hrs" },
+    ],
+    featured: false,
+  },
+  {
+    slug: "kalash",
+    name: "Kalash Valley",
+    tagline: "Last Pagans of the Hindu Kush",
+    description: "Three valleys in Chitral — Bumburet, Rumbur, and Birir — home of the Chilam Joshi spring festival.",
+    overview:
+      "The Kalash people of Chitral District preserve an ancient polytheistic culture often called the Last Pagans of the Hindu Kush. We run a 6–7 day tour for Chilam Joshi in mid-May, with stays in Bumburet and a visit to Rumbur.",
+    image: "/gallery/05.jpeg",
+    images: ["/gallery/05.jpeg", "/tours/kalash.jpeg"],
+    elevation: "3,100m",
+    bestTime: "May (Chilam Joshi) & September–October",
+    highlights: ["Chilam Joshi", "Bumburet", "Rumbur"],
+    attractions: [
+      { name: "Bumburet", description: "The largest Kalash valley and main festival ground." },
+      { name: "Rumbur Valley", description: "A more remote Kalash valley with traditional graveyards." },
+    ],
+    stats: [
+      { label: "Elevation", value: "3,100m" },
+      { label: "Valleys", value: "3" },
+      { label: "Region", value: "Chitral" },
     ],
     featured: false,
   },

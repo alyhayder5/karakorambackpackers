@@ -6,7 +6,7 @@ import { siteName } from "@/lib/site";
 
 export const metadata = {
   title: "About Us",
-  description: `Learn about ${siteName} — Gilgit-Baltistan's premier adventure travel company with 10+ years of excellence.`,
+  description: `Learn about ${siteName} — Gilgit-Baltistan's adventure travel company, founded by Ali Shan and Zahid Hussain.`,
 };
 
 export default function AboutPage() {
@@ -31,8 +31,8 @@ export default function AboutPage() {
               <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
                   <Image
-                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85"
-                    alt="Karakoram mountains"
+                    src="/destinations/kutwal-valley.jpg"
+                    alt="Kutwal Valley and Haramosh Peak"
                     fill
                     className="object-cover"
                     sizes="50vw"
@@ -41,16 +41,17 @@ export default function AboutPage() {
                 <div>
                   <h2 className="text-2xl font-bold">Company Story</h2>
                   <p className="mt-4 leading-relaxed text-muted">
-                    Karakoram Backpackers was founded in Gilgit by local mountain
-                    guides who believed the world deserved to experience the raw
-                    beauty of their homeland. What started as small-group treks
-                    to K2 Base Camp has grown into Pakistan&apos;s most trusted
-                    adventure travel company — without losing the personal touch
-                    that makes every journey special.
+                    Karakoram Backpackers was founded in Gilgit-Baltistan by Ali
+                    Shan (Founder & Trip Manager) and Zahid Hussain (Co-Founder
+                    & Tour Operator). Based in Danyore, we specialize in
+                    customized tours across northern Pakistan and focus on
+                    sustainable tourism — authentic experiences in the
+                    Karakoram, Hindukush, and Himalayas.
                   </p>
                   <p className="mt-4 leading-relaxed text-muted">
-                    Today we lead expeditions across Skardu, Hunza, Deosai, Fairy
-                    Meadows, and beyond — always with local expertise, sustainable
+                    Today we lead family tours, festival journeys, and treks
+                    across Fairy Meadows, Hunza, Skardu, Khaplu, Shimshal, Darel,
+                    and Kalash — always with local expertise, sustainable
                     practices, and an unwavering commitment to safety.
                   </p>
                 </div>
@@ -96,7 +97,7 @@ export default function AboutPage() {
             <ScrollReveal>
               <div>
                 <h2 className="mb-8 text-2xl font-bold">Meet Our Team</h2>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
                   {teamMembers.map((member) => (
                     <div
                       key={member.name}

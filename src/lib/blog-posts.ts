@@ -23,8 +23,7 @@ export const blogPostPreviews: BlogPostPreview[] = [
       "Layering, footwear, hydration, and small gear picks we recommend for predictable summer mountain weather across Hunza and base-camp corridors.",
     dateLabel: "12 Mar 2026",
     datePublished: "2026-03-12",
-    image:
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80",
+    image: "/gallery/17.jpg",
     imageAlt: "Backpack and hiking boots on a wooden bench",
   },
   {
@@ -35,8 +34,7 @@ export const blogPostPreviews: BlogPostPreview[] = [
       "How we pace rest days, communicate symptoms, and adjust itineraries around elevation so hikers and families ease into thinner air.",
     dateLabel: "2 Mar 2026",
     datePublished: "2026-03-02",
-    image:
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=80",
+    image: "/tours/fairy-meadows-2.jpeg",
     imageAlt: "Mountain summit above a sea of clouds",
   },
   {
@@ -47,8 +45,7 @@ export const blogPostPreviews: BlogPostPreview[] = [
       "Leave-no-trace basics, campsite choices, and why lighter footprints keep Gilgit–Baltistan’s valleys accessible for generations of trekkers.",
     dateLabel: "18 Feb 2026",
     datePublished: "2026-02-18",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80",
+    image: "/gallery/06.jpeg",
     imageAlt: "Hiker on a narrow ridge overlooking valleys",
   },
 ];
