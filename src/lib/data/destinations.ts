@@ -287,7 +287,7 @@ export const destinations: Destination[] = [
       "/destinations/haramosh-peak.jpg",
     ],
     elevation: "3,200m",
-    bestTime: "June – September",
+    bestTime: "June September",
     highlights: ["Haramosh Peak", "Kutwal Lake", "High pastures"],
     attractions: [
       { name: "Haramosh Peak", description: "A 7,409m giant of the Rakaposhi-Haramosh range." },
