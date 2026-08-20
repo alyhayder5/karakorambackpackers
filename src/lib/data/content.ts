@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     review:
       "An unforgettable trekking experience! The guides were professional, and the views of K2 Basecamp were breathtaking.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+    image: "/testimonials/john.jpg",
   },
   {
     id: "2",
@@ -24,7 +24,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     review:
       "A perfect blend of adventure and history! The visit to Altit & Baltit Forts was a highlight of my Pakistan trip. Highly Recommended!",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
+    image: "/testimonials/usman.jpg",
   },
   {
     id: "3",
@@ -33,24 +33,24 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     review:
       "Camping in Deosai was magical! The team ensured everything was eco-friendly and comfortable. Will definitely book again!",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+    image: "/testimonials/haris.jpg",
   },
   {
     id: "4",
-    name: "Guest Traveler",
+    name: "Daniel M.",
     role: "Teacher",
     rating: 5,
     review:
       "Hiking to Fairy Meadows with Karakoram Backpackers was a dream come true. Well-organized, safe, and incredibly scenic!",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
+    image: "/testimonials/daniel.jpg",
   },
 ];
 
 export const heroStats = [
-  { value: "5000+", label: "Travelers" },
-  { value: "100+", label: "Expeditions" },
-  { value: "4.9/5", label: "Rating" },
-  { value: "10+", label: "Years Experience" },
+  { value: "8+", label: "Years Guiding" },
+  { value: "438", label: "International Guests" },
+  { value: "173", label: "Local Guests" },
+  { value: "611", label: "Trips Led" },
 ];
 
 export const whyChooseContent = {
@@ -58,14 +58,14 @@ export const whyChooseContent = {
   title: "Why Choose Karakoram Backpackers?",
   paragraphs: [
     "At Karakoram Backpackers, we offer unforgettable adventures across Northern Pakistan, from K2 Basecamp to Fairy Meadows and Deosai Plains. With expert local guides and seamless logistics, we ensure a hassle-free experience for all travelers.",
-    "We prioritize eco-friendly tourism, practicing zero-waste camping, and supporting local communities through homestays. With trusted accommodations and transport partners, we make every journey smooth, enriching, and truly unforgettable. Join us for lifetime memories and thrilling adventures.",
+    "We prioritize eco-friendly tourism, practicing zero-waste camping, and supporting local communities through home stays. With trusted accommodations and transport partners, we make every journey smooth, enriching, and truly unforgettable. Join us for life time memories and thrilling adventures.",
   ],
 };
 
 export const comfortSectionContent = {
   title: "Our Comfort",
   description:
-    "At Karakoram Backpackers, we make every journey comfortable, seamless, and unforgettable. With cozy stays, thrilling camping, self-cooking experiences, adventure trekking, smooth transport, and expert service, you can focus on the adventure while we handle the rest.",
+    "At Karakoram Backpackers, we make every journey comfortable, seamless, and unforgettable. With cozy stays, thrilling camping, self cooking experiences, adventure trekking and smooth transport, and expert service, you can focus on the adventure while we handle the rest.",
 };
 
 export const comfortFeatures = [
@@ -102,8 +102,7 @@ export const founderStaffContent = {
     "Our team of experts ensures safe, enriching trips, connecting travelers with the region's natural beauty and culture.",
     "Get in touch with us to plan your next adventure!",
   ],
-  image:
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85",
+  image: "/why-choose-us/ali-shan.jpeg",
 };
 
 export const exploreMoreContent = {
@@ -111,8 +110,7 @@ export const exploreMoreContent = {
   title: "Discover the incredible treks led by our experienced team",
   description:
     "Explore breathtaking mountains, hidden valleys, and scenic trails. Join us for a journey you'll never forget!",
-  image:
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85",
+  image: "/destinations/kutwal-trek.jpg",
 };
 
 export type PricingPlan = {
@@ -126,36 +124,37 @@ export type PricingPlan = {
 export const pricingPlans: PricingPlan[] = [
   {
     tier: "Economical",
-    tagline: "Smart Travel, Unbeatable Value",
+    tagline: "30k–50k PKR",
     description:
-      "Perfect for budget-conscious travelers who want authentic Karakoram experiences without compromise on safety or local expertise.",
+      "Perfect for budget-conscious explorers who don't want to compromise on fun. Comfortable accommodations, essential amenities, and expertly planned itineraries — whether you're a backpacker, a student, or looking for a great deal.",
     highlights: [
-      "Shared transport & group departures",
-      "Camping & guesthouse stays",
-      "Certified local guides",
+      "Budget-friendly prices",
+      "Clean, comfortable stays",
+      "Handpicked value experiences",
     ],
   },
   {
     tier: "Executive",
-    tagline: "Elevated Comfort, Premium Convenience",
+    tagline: "50k–100k PKR",
     description:
-      "A balanced package with upgraded accommodations, flexible pacing, and enhanced comfort for families and small groups.",
+      "For those who appreciate a little extra luxury without going over the top. Upgraded accommodations, priority services, and exclusive perks for couples, families, or anyone seeking a refined travel experience.",
     highlights: [
-      "Private 4x4 transport",
-      "Mid-range hotels & camps",
-      "Customizable daily itinerary",
+      "Spacious, high-quality lodging",
+      "Faster check-ins & priority access",
+      "Premium transportation options",
+      "Curated experiences with comfort",
     ],
     featured: true,
   },
   {
     tier: "Deluxe",
-    tagline: "Unmatched Luxury, Once-in-a-Lifetime Experiences",
+    tagline: "100k–300k PKR",
     description:
-      "The ultimate northern Pakistan journey — premium lodges, private guides, and bespoke routes crafted around your dream adventure.",
+      "The pinnacle of travel, where every detail is crafted for sophistication and exclusivity. From 5-star resorts and private tours to VIP treatment and personalized service.",
     highlights: [
-      "Private guide & vehicle",
-      "Premium lodges & resorts",
-      "Fully bespoke itinerary",
+      "Ultra-luxury hotels & private villas",
+      "Bespoke itineraries & private guides",
+      "First-class transportation & fine dining",
     ],
   },
 ];
@@ -179,51 +178,51 @@ export const adventureCategories: AdventureCategory[] = [
     title: "Trekking",
     description: "Multi-day hikes through glacier corridors and alpine meadows.",
     icon: "Footprints",
-    image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80",
+    image: "/destinations/kutwal-trek.jpg",
   },
   {
     title: "Mountaineering",
     description: "Expeditions to base camps and peaks above 6,000m.",
     icon: "Mountain",
-    image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&q=80",
+    image: "/destinations/haramosh-peak.jpg",
   },
   {
     title: "Jeep Safari",
     description: "High-altitude plains and remote valleys by 4x4.",
     icon: "Car",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80",
+    image: "/destinations/naltar-valley.jpg",
   },
   {
     title: "Photography Tours",
     description: "Golden-hour shoots at the world's most dramatic viewpoints.",
     icon: "Camera",
-    image: "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=600&q=80",
+    image: "/destinations/passu-cones.jpg",
   },
   {
     title: "Camping",
     description: "Sleep under the stars at 3,000m+ with full camp support.",
     icon: "Tent",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
+    image: "/tours/fairy-meadows-2.jpeg",
   },
   {
     title: "Cultural Tours",
     description: "Forts, festivals, and homestays with Balti families.",
     icon: "Landmark",
-    image: "https://images.unsplash.com/photo-1585408778703-1cf0f1cff791?w=600&q=80",
+    image: "/tours/hunza-valley.jpeg",
   },
 ];
 
 export const galleryImages = [
-  { id: "1", src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85", alt: "Karakoram peaks at sunrise", height: "tall" },
-  { id: "2", src: "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=800&q=85", alt: "Hunza Valley panorama", height: "medium" },
-  { id: "3", src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=85", alt: "Alpine meadow trek", height: "short" },
-  { id: "4", src: "https://images.unsplash.com/photo-1585408778703-1cf0f1cff791?w=800&q=85", alt: "Skardu lake reflection", height: "medium" },
-  { id: "5", src: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=85", alt: "Mountain summit above clouds", height: "tall" },
-  { id: "6", src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=85", alt: "Hiker on mountain ridge", height: "short" },
-  { id: "7", src: "https://images.unsplash.com/photo-1486870591958-9d9d0d4734c9?w=800&q=85", alt: "Passu Cones", height: "medium" },
-  { id: "8", src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=85", alt: "Starry mountain night", height: "tall" },
-  { id: "9", src: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=85", alt: "Trekking through valley", height: "short" },
-  { id: "10", src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85", alt: "Glacier expedition", height: "medium" },
-  { id: "11", src: "https://images.unsplash.com/photo-1609137144813-7d992133842f?w=800&q=85", alt: "Hunza fort", height: "short" },
-  { id: "12", src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=85", alt: "Camping at altitude", height: "tall" },
+  { id: "1", src: "/gallery/01.jpeg", alt: "Karakoram expedition camp", height: "tall" },
+  { id: "2", src: "/gallery/02.jpeg", alt: "High mountain valley in Gilgit-Baltistan", height: "medium" },
+  { id: "3", src: "/gallery/03.jpeg", alt: "Trekking trail through northern Pakistan", height: "short" },
+  { id: "4", src: "/gallery/04.jpeg", alt: "Guests on a Karakoram Backpackers trip", height: "medium" },
+  { id: "5", src: "/gallery/06.jpeg", alt: "Alpine lake and peaks", height: "tall" },
+  { id: "6", src: "/gallery/07.jpeg", alt: "Mountain road and valley views", height: "short" },
+  { id: "7", src: "/destinations/passu-cones.jpg", alt: "Passu Cones, Hunza", height: "medium" },
+  { id: "8", src: "/gallery/15.jpg", alt: "Trip photograph from the Karakoram", height: "tall" },
+  { id: "9", src: "/destinations/naltar-valley.jpg", alt: "Naltar Valley", height: "short" },
+  { id: "10", src: "/gallery/19.jpg", alt: "Group adventure in Gilgit-Baltistan", height: "medium" },
+  { id: "11", src: "/destinations/skardu-blind-lake.jpg", alt: "Skardu Blind Lake", height: "short" },
+  { id: "12", src: "/tours/fairy-meadows-2.jpeg", alt: "Fairy Meadows and Nanga Parbat", height: "tall" },
 ];

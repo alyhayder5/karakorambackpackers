@@ -5,8 +5,8 @@ import { tours } from "@/lib/data/tours";
 import { siteName } from "@/lib/site";
 
 export const metadata = {
-  title: "Family & Cultural Tours",
-  description: `Browse festival tours across Skardu, Hunza, Khaplu, Kalash Valley and more with ${siteName}. Shyok Winter Festival, Hunza Winter Festival, Mayfung Fire Festival, and beyond.`,
+  title: "Tours & Treks",
+  description: `Browse family tours, cultural festivals, and treks with ${siteName}: Fairy Meadows, Hunza Valley, the 12-day Gilgit–Skardu circuit, Shyok Winter Festival, and more.`,
 };
 
 export default function ToursPage() {
@@ -17,15 +17,16 @@ export default function ToursPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
           <div className="container-premium relative">
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Festival Tours
+              Our Tours
             </p>
             <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
-              Family & Cultural Tours
+              Family Tours, Festivals & Treks
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted">
-              From the Shyok Winter Festival in Khaplu to Chilam Joshi in Kalash
-              Valley — join guided group departures across Northern Pakistan&apos;s
-              most vibrant cultural celebrations.
+              From a 5-day Fairy Meadows trek and Hunza family tour to winter
+              festivals in Khaplu and Hunza, Chilam Joshi in Kalash, and a
+              12-day Gilgit–Skardu circuit — these are the trips we actually
+              run.
             </p>
           </div>
         </section>

@@ -1,0 +1,45 @@
+{
+  "terms": [
+    {
+      "id": "1",
+      "name": "Uncategorized",
+      "slug": "uncategorized"
+    },
+    {
+      "id": "3",
+      "name": "section",
+      "slug": "section"
+    },
+    {
+      "id": "5",
+      "name": "Main Menu",
+      "slug": "main-menu"
+    }
+  ],
+  "tax": [
+    {
+      "id": "1",
+      "term_id": "1",
+      "taxonomy": "category",
+      "description": "",
+      "parent": "0",
+      "count": "0"
+    },
+    {
+      "id": "3",
+      "term_id": "3",
+      "taxonomy": "elementor_library_type",
+      "description": "",
+      "parent": "0",
+      "count": "5"
+    },
+    {
+      "id": "5",
+      "term_id": "5",
+      "taxonomy": "nav_menu",
+      "description": "",
+      "parent": "0",
+      "count": "30"
+    }
+  ]
+}

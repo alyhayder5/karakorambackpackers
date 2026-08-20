@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/utils";
 import type { Tour, TourCategory } from "@/lib/data/tours";
-import { tourCategories } from "@/lib/data/tours";
+import { tourCategories, tourSortPrice } from "@/lib/data/tours";
 
 export function TourCard({ tour }: { tour: Tour }) {
   return (
@@ -28,7 +28,7 @@ export function TourCard({ tour }: { tour: Tour }) {
         </Badge>
         <div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-black/50 px-2.5 py-1 text-xs font-medium backdrop-blur-sm">
           <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-          {tour.rating}
+          {tour.reviewCount > 0 ? `${tour.rating} (${tour.reviewCount})` : tour.rating}
         </div>
       </div>
       <div className="p-6">
@@ -55,7 +55,7 @@ export function TourCard({ tour }: { tour: Tour }) {
           <div>
             <p className="text-xs text-muted">From</p>
             <p className="text-2xl font-bold text-primary">
-              {formatPrice(tour.price)}
+              {formatPrice(tour.price, tour.currency)}
             </p>
           </div>
           <Link href={`/tours/${tour.slug}`}>
@@ -116,10 +116,10 @@ export function ToursListing({ tours: allTours }: TourFiltersProps) {
 
     switch (sort) {
       case "price-low":
-        result.sort((a, b) => a.price - b.price);
+        result.sort((a, b) => tourSortPrice(a) - tourSortPrice(b));
         break;
       case "price-high":
-        result.sort((a, b) => b.price - a.price);
+        result.sort((a, b) => tourSortPrice(b) - tourSortPrice(a));
         break;
       case "rating":
         result.sort((a, b) => b.rating - a.rating);

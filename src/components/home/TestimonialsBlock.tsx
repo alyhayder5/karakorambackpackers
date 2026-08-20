@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
+import { testimonials } from "@/lib/data/content";
+
 type Person = {
   id: string;
   name: string;
@@ -12,52 +14,13 @@ type Person = {
   image: string;
 };
 
-const PEOPLE: Person[] = [
-  {
-    id: "couple",
-    name: "Rahim & Lara A.",
-    role: "Couple travelers",
-    quote:
-      "We wanted Hunza slow and romantic—fewer checkpoints, longer sunsets—and they balanced every camp night with space to breathe. Felt like traveling with friends who actually pick up the phone.",
-    image: "/tour-package/couple.jpeg",
-  },
-  {
-    id: "family",
-    name: "The Hassan–Siddiq family",
-    role: "Family group (two generations)",
-    quote:
-      "With grandparents and teenagers in one van you worry about pacing—they split tough days cleanly, flagged altitude gently, and the kids still talk about Fairy Meadows louder than Wi‑Fi passwords.",
-    image:
-      "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=200&q=80",
-  },
-  {
-    id: "teacher",
-    name: "Maria Tan",
-    role: "Secondary school teacher",
-    quote:
-      "I grade rubrics all year; this trip handed me transparency instead—route PDFs before we flew, timings that matched reality in the valleys, zero drama at handovers. Classroom-order comfort in terrain that isn’t tame.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80",
-  },
-  {
-    id: "geologist",
-    name: "Dr. Elena Volkov",
-    role: "Field geologist",
-    quote:
-      "I inspect structure and strata for work—having guides who understood fault lines casually, without turning every stop into a seminar, meant I could nerd out—or just stand under Nanga Parbat and shut up.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
-  },
-  {
-    id: "solo-female",
-    name: "Priya Sharma",
-    role: "Solo female traveler",
-    quote:
-      "First time solo above 3,000 m—they paired me thoughtfully, lodges felt safe without feeling sterile, and I never argued for seat choice on jeeps twice. Came back quieter in the lungs, louder in the camera roll.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-  },
-];
+const PEOPLE: Person[] = testimonials.map((t) => ({
+  id: t.id,
+  name: t.name,
+  role: t.role,
+  quote: t.review,
+  image: t.image,
+}));
 
 const VISIBLE_COUNT = 3;
 

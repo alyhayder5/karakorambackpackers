@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-const CTA_IMAGE =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85";
+const CTA_IMAGE = "/gallery/07.jpeg";
 
 export function FinalCTA() {
   return (

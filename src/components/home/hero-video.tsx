@@ -7,8 +7,7 @@ const HERO_VIDEO_FILE =
 
 const VIDEO_SRC = `/hero-video/${encodeURIComponent(HERO_VIDEO_FILE)}`;
 
-const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85";
+const FALLBACK_IMAGE = "/tours/fairy-meadows-2.jpeg";
 
 function useReducedMotion() {
   return useState(() => {

@@ -77,7 +77,9 @@ export function TourDetailView({ tour }: { tour: Tour }) {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  {tour.rating} ({tour.reviewCount} reviews)
+                  {tour.reviewCount > 0
+                    ? `${tour.rating} (${tour.reviewCount} reviews)`
+                    : `${tour.rating} / 5`}
                 </span>
               </div>
             </div>
@@ -175,7 +177,7 @@ export function TourDetailView({ tour }: { tour: Tour }) {
                 <div className="rounded-3xl border border-border bg-surface p-6 premium-shadow">
                   <p className="text-sm text-muted">Starting from</p>
                   <p className="text-4xl font-bold text-primary">
-                    {formatPrice(tour.price)}
+                    {formatPrice(tour.price, tour.currency)}
                   </p>
                   <p className="mt-1 text-xs text-muted">per person</p>
                   <div className="mt-4 space-y-2 text-sm text-muted">
