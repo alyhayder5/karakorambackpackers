@@ -1,6 +1,6 @@
 import { Fraunces, Outfit } from "next/font/google";
 import type { Metadata, Viewport } from "next";
-import { Navbar } from "@/components/layout/navbar";
+import { SiteChrome } from "@/components/layout/site-chrome";
 import { Providers } from "@/components/providers/providers";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import {
@@ -80,8 +80,7 @@ export default function RootLayout({
         <Providers>
           <OrganizationJsonLd />
           <WebSiteJsonLd />
-          <Navbar />
-          {children}
+          <SiteChrome>{children}</SiteChrome>
         </Providers>
       </body>
     </html>

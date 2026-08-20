@@ -57,3 +57,11 @@ export function getSiteGoogleMapsEmbedSrc(): string {
   const q = encodeURIComponent(`${lat},${lng}`);
   return `https://maps.google.com/maps?q=${q}&z=17&hl=en&t=m&output=embed`;
 }
+
+export function getMapsEmbedSrc(address: string, mapsUrl?: string) {
+  if (!mapsUrl || mapsUrl === siteGoogleMapsUrl) {
+    return getSiteGoogleMapsEmbedSrc();
+  }
+  const q = encodeURIComponent(address || mapsUrl);
+  return `https://maps.google.com/maps?q=${q}&z=17&hl=en&t=m&output=embed`;
+}

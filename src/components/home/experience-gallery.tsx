@@ -9,7 +9,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { galleryImages } from "@/lib/data/content";
+import type { GalleryItem } from "@/lib/cms/types";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -21,10 +21,8 @@ const heightMap = {
   tall: "h-80",
 };
 
-export function ExperienceGallery() {
-  const [selected, setSelected] = useState<(typeof galleryImages)[0] | null>(
-    null,
-  );
+export function ExperienceGallery({ images }: { images: GalleryItem[] }) {
+  const [selected, setSelected] = useState<GalleryItem | null>(null);
 
   return (
     <section className="section-padding bg-background">
@@ -47,7 +45,7 @@ export function ExperienceGallery() {
         </ScrollReveal>
 
         <div className="masonry-grid">
-          {galleryImages.map((img, i) => (
+          {images.map((img, i) => (
             <ScrollReveal key={img.id} delay={(i % 3) as 0 | 1 | 2 | 3}>
               <button
                 type="button"

@@ -4,8 +4,10 @@ import { ArrowUpRight, Calendar, Mountain } from "lucide-react";
 import { Footer } from "@/components/layout/footer";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { destinations } from "@/lib/data/destinations";
+import { getDestinations } from "@/lib/cms/store";
 import { siteName } from "@/lib/site";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Destinations",
@@ -13,6 +15,7 @@ export const metadata = {
 };
 
 export default function DestinationsPage() {
+  const destinations = getDestinations();
   return (
     <>
       <main className="pt-[120px]">
@@ -62,7 +65,7 @@ export default function DestinationsPage() {
                         {dest.tagline}
                       </Badge>
                       <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
-                        {dest.stats.map((stat) => (
+                        {(dest.stats ?? []).map((stat) => (
                           <span
                             key={stat.label}
                             className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-md"

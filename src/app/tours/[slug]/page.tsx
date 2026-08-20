@@ -1,12 +1,15 @@
 import { notFound } from "next/navigation";
 import { TourDetailView } from "@/components/tours/tour-detail-view";
-import { getTourBySlug, tours } from "@/lib/data/tours";
+import { getTourBySlug, getTours } from "@/lib/cms/store";
 import { siteName } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  return tours.map((t) => ({ slug: t.slug }));
+  return getTours().map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {

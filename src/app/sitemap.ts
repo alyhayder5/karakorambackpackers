@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/site";
-import { tours } from "@/lib/data/tours";
-import { destinations } from "@/lib/data/destinations";
+import { getDestinations, getTours } from "@/lib/cms/store";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
   const lastModified = new Date();
+  const tours = getTours();
+  const destinations = getDestinations();
 
   const staticPages = [
     "",
